@@ -7,8 +7,10 @@
   </v-app>
 </template>
 <script>
-
 export default {
-  name: 'App'
-}
+  name: "App",
+  created() {
+    document.title = "Bierpong-Turnier";
+  },
+};
 </script>
