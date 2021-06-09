@@ -45,6 +45,7 @@ export default {
     },
     onSelect() {
       this.$store.state.tournament.current = this.tournament;
+      localStorage.setItem("currentTournamentId", this.tournament?.id);
       this.$router.push({ name: "GroupStage" });
     },
     async onDeleteClicked() {

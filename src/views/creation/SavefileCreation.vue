@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { JsonToTournament } from "@/model/util/TournamentSaver";
+import { convertJsonToTournament } from "@/model/util/Converter";
 
 export default {
   data: () => {
@@ -69,7 +69,7 @@ export default {
     },
 
     onStartClicked() {
-      this.$store.state.tournament.current = JsonToTournament(
+      this.$store.state.tournament.current = convertJsonToTournament(
         this.parsedContent
       );
 

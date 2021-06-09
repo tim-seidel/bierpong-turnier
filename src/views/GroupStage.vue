@@ -27,10 +27,10 @@
 import GroupView from "@/components/Group.vue";
 
 import {
-  JsonToTournament,
-  TournamentToJson,
-} from "@/model/util/TournamentSaver";
-import { updateGame, updateTeam } from "../services/TournamentService";
+  getTournament,
+  updateGame,
+  updateTeam,
+} from "../services/TournamentService";
 
 export default {
   components: {
@@ -44,39 +44,33 @@ export default {
   },
 
   methods: {
-    restoreTournament(save) {
-      if (save) {
-        try {
-          this.$store.state.tournament.current = JsonToTournament(save);
-        } catch (e) {
-          console.log(e);
-        }
+    restoreTournament() {
+      try {
+        const currentTournamentId = localStorage.getItem("currentTournamentId");
+        this.$store.state.tournament.current = getTournament(currentTournamentId);
+      } catch (e) {
+        console.log(e);
       }
     },
 
     async onTournamentChanged(change) {
-      const json = TournamentToJson(this.tournament);
-      localStorage.setItem("tournamentBackup", json);
-
       switch (change?.type ?? "") {
         case "team_name": {
-          const response = await updateTeam({
+          const response = updateTeam(this.tournament, {
             tournamentId: this.tournament.id,
             groupId: change.groupId,
             teamId: change.teamId,
             name: change.name,
           });
-          console.log(response);
           break;
         }
         case "game_score": {
-          const response = await updateGame({
+          const response = updateGame(this.tournament, {
             tournamentId: this.tournament.id,
             groupId: change.groupId,
             gameId: change.gameId,
             score: change.score,
           });
-          console.log(response);
           break;
         }
         case "group_name": {
@@ -88,10 +82,7 @@ export default {
 
   mounted() {
     if (!this.tournament) {
-      const save = localStorage.getItem("tournamentBackup");
-      this.restoreTournament(save);
-    } else {
-      this.onTournamentChanged();
+      this.restoreTournament();
     }
   },
 };

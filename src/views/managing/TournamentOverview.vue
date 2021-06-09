@@ -90,12 +90,10 @@ export default {
     this.isLoading = true;
     const id = this.$route.params.tournamentId;
     if (!id) return;
-    this.tournament = await getTournament(id, "__DEV__");
-    if (this.tournament && this.tournament.configurationId) {
-      this.configuration = await getConfiguration({
-        id: this.tournament.configurationId,
-        password: "",
-      });
+    this.tournament = await getTournament(id)
+    if (this.tournament ) {
+      console.log("TournamentOverview", this.tournament)
+      this.configuration = this.tournament.configuration
     }
     this.isLoading = false;
   },

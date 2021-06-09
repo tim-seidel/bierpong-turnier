@@ -1,4 +1,7 @@
+import Game from "../model/Game"
 import Score from "../model/Score"
+
+import { v4 as uuid } from "uuid";
 
 export function createGames(group) {
     const teamCount = group ? group.teams.length : 0
@@ -8,16 +11,18 @@ export function createGames(group) {
     const pairings = getTeamParings(teamCount)
     const games = []
 
+    let counter = 0
     pairings.forEach(pairing => {
-        games.push({
-            team1Id: group.teams[pairing.first - 1].id,
-            team2Id: group.teams[pairing.second - 1].id,
-            score: new Score()
-        })
+        games.push(new Game(
+            uuid(),
+            group.teams[pairing.first - 1],
+            group.teams[pairing.second - 1],
+            new Score(),
+            counter++
+        ))
     })
 
     return games
-
 }
 
 export function getTeamParings(numberOfTeams) {

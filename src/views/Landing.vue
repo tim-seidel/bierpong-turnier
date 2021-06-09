@@ -1,14 +1,14 @@
 <template>
-  <v-container style="max-width: 1000px">
+  <v-container style="max-width: 800px;">
     <v-card>
-      <v-card-title>Herzlich Willkommen!</v-card-title>
+      <v-card-title class="justify-center">Herzlich Willkommen!</v-card-title>
       <v-card-text>
         <v-img
           class="mb-4"
           :src="require('../assets/logo_small.png')"
           contain
         />
-        <p>Möchtest Du ein neues Turnier erstellen, oder ein Turnier bearbeiten und starten?</p>
+
         <v-row>
           <v-col cols="12" sm="6">
             <v-btn
@@ -27,7 +27,7 @@
               @click="$router.push({ name: 'ManagingLanding' })"
             >
               <v-icon class="mr-2">mdi-clipboard-edit</v-icon>
-              Turnier verwalten/starten
+              Turnierverwaltung
             </v-btn>
           </v-col>
         </v-row>
@@ -58,11 +58,11 @@ import Vue from "vue";
 
 import TeamChip from "@/components/TeamChip";
 
-import { JsonToTournament } from "@/model/util/TournamentSaver";
+import { getTournament } from "../services/TournamentService";
 
 export default Vue.extend({
   components: {
-    TeamChip
+    TeamChip,
   },
   data: () => {
     return {
@@ -80,13 +80,14 @@ export default Vue.extend({
     loadTournament() {
       this.dialog = false;
       this.$store.state.tournament.current = this.tournament;
+      localStorage.setItem("currentTournamentId", this.tournament?.id);
       this.$router.push("groupstage");
     },
     dismissTournament() {
       this.dialog = false;
       this.tournament = null;
       this.$store.state.tournament.current = null;
-      localStorage.removeItem("tournamentBackup");
+      localStorage.removeItem("currentTournamentId");
     },
   },
 
@@ -97,17 +98,11 @@ export default Vue.extend({
         "Du hast akutell ein Turnier geladen, möchtest du damit fortfahren?"
       );
     } else {
-      const save = localStorage.getItem("tournamentBackup");
-      console.log("Found Save: ", save);
-      if (save) {
-        try {
-          this.tournament = JsonToTournament(save);
-          this.showDialog(
-            `Es befindet sich noch ein nicht beendetes Turnier im Zwischenspeicher, möchtest du damit fortfahren?`
-          );
-        } catch (e) {
-          console.log(e);
-        }
+      try {
+        const currentTournamentId = localStorage.getItem("currentTournamentId");
+        this.tournament = getTournament(currentTournamentId);
+      } catch (e) {
+        console.log(e);
       }
     }
   },

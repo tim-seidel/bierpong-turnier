@@ -146,7 +146,7 @@ import LayoutOptions from "@/components/dialog/LayoutOptions";
 
 import Team from "@/model/Team";
 import Game from "@/model/Game";
-import { TournamentToJson } from "@/model/util/TournamentSaver";
+import {convertTournamentToJson} from "@/model/util/Converter"
 
 export default Vue.extend({
   components: {
@@ -219,7 +219,7 @@ export default Vue.extend({
     onEndTournament() {
       if (this.dialogEnd.deleteKey === "Ich bin nicht betrunken!") {
         this.dialog = false;
-        localStorage.removeItem("tournamentBackup");
+        localStorage.removeItem("currentTournamentId");
         this.$store.state.tournament.current = null;
         this.$router.push("/");
       }
@@ -235,9 +235,7 @@ export default Vue.extend({
     saveTeam() {
       const grp = this.addDialogSelectedGroup;
       if (grp && !grp.hasStarted()) {
-        const team = new Team();
-        team.name = this.dialogAdd.teamName;
-        grp.teams.push(team);
+        grp.teams.push(new Team(uuid(), this.dialogAdd.teamName));
         grp.createGames();
         this.resetAddDialog();
       } else {

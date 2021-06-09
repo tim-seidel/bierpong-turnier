@@ -181,8 +181,7 @@ export default {
     },
     saveTeam() {
       if (!this.group) return;
-      const team = new Team();
-      team.name = this.name;
+      const team = new Team(uuid(), this.name);
       this.group.createGames();
 
       this.resetChanges();

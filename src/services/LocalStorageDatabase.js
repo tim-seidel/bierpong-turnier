@@ -1,3 +1,5 @@
+import { convertTournamentToJson } from "../model/util/Converter"
+
 const KEY_TOURNAMENTS = "key_tournaments"
 const KEY_TOURNAMENT_WITH_ID = "key_tournament_"
 
@@ -13,9 +15,10 @@ export function getTournament(id) {
 
 export function createTournament(tournament) {
     if (tournament) {
-        localStorage.setItem(KEY_TOURNAMENT_WITH_ID + tournament.id, JSON.stringify(tournament))
+        const jTournament = convertTournamentToJson(tournament)
+        localStorage.setItem(KEY_TOURNAMENT_WITH_ID + tournament.id, JSON.stringify(jTournament))
+        insertOrUpdateTournaments(jTournament)
     }
-    insertOrUpdateTournaments(tournament)
 }
 
 function insertOrUpdateTournaments(tournament) {
@@ -37,8 +40,10 @@ function insertOrUpdateTournaments(tournament) {
 
 export function updateTournament(tournament) {
     if (tournament) {
-        localStorage.setItem(KEY_TOURNAMENT_WITH_ID + tournament.id, JSON.stringify(tournament))
-        insertOrUpdateTournaments(tournament)
+        const jTournament = convertTournamentToJson(tournament)
+
+        localStorage.setItem(KEY_TOURNAMENT_WITH_ID + tournament.id, JSON.stringify(jTournament))
+        insertOrUpdateTournaments(jTournament)
     }
 }
 
@@ -47,7 +52,7 @@ export function deleteTournament(id) {
 
     const tournaments = getTournaments()
     const existing = tournaments.find(t => t.id === t.id)
-    if(existing){
+    if (existing) {
         const removed = tournaments.filter(t => t.id !== id)
         localStorage.setItem(KEY_TOURNAMENTS, JSON.stringify(removed))
     }
@@ -58,7 +63,6 @@ function extractGeneralInformation(tournament) {
 
     let tc = 0
     tournament.groups.forEach(g => {
-        console.log(g)
         tc += g.teams.length
     });
 

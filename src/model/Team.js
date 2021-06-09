@@ -1,10 +1,7 @@
-import {v4 as uuid} from 'uuid'
-
 export default class Team {
-  constructor () {
-    this.id = uuid()
-    this.name = ""
-
+  constructor(id, name) {
+    this.id = id
+    this.name = name
     this.games = 0
     this.points = 0
     this.beersGood = 0

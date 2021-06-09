@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid'
+import Team from '../model/Team'
 
 export function createTeamsFromPlayers(players) {
     if (!players || players.length === 0) return []
@@ -7,17 +8,17 @@ export function createTeamsFromPlayers(players) {
 
     const t_count = players.length / 2
     for (let t = 0; t < t_count; t++) {
-        teams.push({
-            id: uuid(),
-            name: players[2 * t] + " + " + players[2 * t + 1]
-        })
+        teams.push(new Team(
+            uuid(),
+            players[2 * t] + " + " + players[2 * t + 1]
+        ))
     }
 
     if (t_count % 2 === 1) {
-        teams.push({
-            id: uuid(),
-            name: players[t_count - 1]
-        })
+        teams.push(new Team(
+            uuid(),
+            players[t_count - 1]
+        ))
     }
 
     return teams
@@ -26,10 +27,7 @@ export function createTeamsFromPlayers(players) {
 export function createTeamsFromCount(teamCount) {
     const teams = []
     for (let t = 0; t < teamCount; t++) {
-        teams.push({
-            id: uuid(),
-            name: "Team " + (t + 1)
-        })
+        teams.push(new Team(uuid(), "Team " + (t + 1)))
     }
 
     return teams
@@ -40,10 +38,7 @@ export function createTeamsFromNames(names) {
 
     const teams = []
     names.forEach(n => {
-        teams.push({
-            id: uuid(),
-            name: n
-        })
+        teams.push(new Team(uuid(), n))
     })
 
     return teams

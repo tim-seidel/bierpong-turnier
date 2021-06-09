@@ -54,6 +54,7 @@ oder neue Zeile"
     <v-row>
       <v-col cols="6">
         <v-btn
+          v-if="false"
           color="primary"
           block
           @click="onSaveClicked"
@@ -142,15 +143,19 @@ export default {
       const config = {
         type: "player",
         name: this.tournamentConfig.name,
-        startDate: this.tournamentConfig.startDate + " " + this.tournamentConfig.startTime + ":00",
+        startDate:
+          this.tournamentConfig.startDate +
+          " " +
+          this.tournamentConfig.startTime +
+          ":00",
         groupCount: this.specialTournamentConfig.groupCount,
         players: this.playerArray,
       };
 
-      const response = await createTournament(config);
+      const tournament = await createTournament(config);
 
       this.$store.state.tournament.current = tournament;
-
+      localStorage.setItem("currentTournamentId", tournament?.id);
       this.$router.push({ name: "GroupStage" });
     },
   },

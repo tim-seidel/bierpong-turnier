@@ -1,3 +1,6 @@
+import { v4 as uuid } from "uuid";
+import Group from "../model/Group";
+
 export function createGroups(teams, groupCount) {
     if (!teams || teams.length === 0 || groupCount < 1) {
         return []
@@ -7,7 +10,7 @@ export function createGroups(teams, groupCount) {
     const groups = []
 
     for (let g = 0; g < groupCount; g++) {
-        groups.push({ name: "Tisch " + (g + 1), teams: [], games: [] })
+        groups.push(new Group(uuid(), "Tisch " + (g + 1),))
     }
 
     for (let t = 0; t < teamCount; t++) {

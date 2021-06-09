@@ -57,6 +57,7 @@ neue + Zeile"
     <v-row>
       <v-col cols="6">
         <v-btn
+          v-if="false"
           color="primary"
           block
           @click="onSaveClicked"
@@ -80,7 +81,7 @@ neue + Zeile"
 </template>
 
 <script>
-import { convertJsonToTournament, createTournament } from "../../services/TournamentService";
+import { createTournament } from "../../services/TournamentService";
 
 export default {
   props: {
@@ -141,19 +142,20 @@ export default {
       const config = {
         type: "team",
         name: this.tournamentConfig.name,
-        startDate: this.tournamentConfig.startDate + " " + this.tournamentConfig.startTime + ":00",
+        startDate:
+          this.tournamentConfig.startDate +
+          " " +
+          this.tournamentConfig.startTime +
+          ":00",
         groupCount: this.specialTournamentConfig.groupCount,
         teams: this.teamArray,
       };
 
-      const response = await createTournament(config);
-      console.log(response)
+      const tournament = await createTournament(config);
 
-      if (response.ok) {
-        this.$store.state.tournament.current = convertJsonToTournament(response.data.data)
-
-        this.$router.push({ name: "GroupStage" });
-      }
+      this.$store.state.tournament.current = tournament;
+      localStorage.setItem("currentTournamentId", tournament?.id);
+      this.$router.push({ name: "GroupStage" });
     },
     onSaveClicked() {},
   },

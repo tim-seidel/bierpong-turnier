@@ -54,7 +54,18 @@
       </v-row>
     </v-form>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="6">
+        <v-btn
+          v-if="false"
+          color="primary"
+          block
+          @click="onSaveClicked"
+          :disabled="!tournamentConfig.isValid"
+        >
+          <v-icon class="mr-2">mdi-content-save</v-icon> Speichern</v-btn
+        >
+      </v-col>
+      <v-col cols="6">
         <v-btn
           color="primary"
           block
@@ -69,7 +80,7 @@
 </template>
 
 <script>
-import { convertJsonToTournament, createShareCode, createTournament } from "../../services/TournamentService";
+import { createTournament } from "../../services/TournamentService";
 
 export default {
   props: {
@@ -113,15 +124,19 @@ export default {
       const config = {
         type: "manual",
         name: this.tournamentConfig.name,
-        startDate: this.tournamentConfig.startDate + " " + this.tournamentConfig.startTime + ":00",
+        startDate:
+          this.tournamentConfig.startDate +
+          " " +
+          this.tournamentConfig.startTime +
+          ":00",
         groupCount: this.specialTournamentConfig.groupCount,
         teamCount: this.specialTournamentConfig.teamCount,
       };
 
-      const response = createTournament(config);
-      console.log(response);
+      const tournament = createTournament(config);
 
-      this.$store.state.tournament.current = convertJsonToTournament(response)
+      this.$store.state.tournament.current = tournament;
+      localStorage.setItem("currentTournamentId", tournament?.id);
       this.$router.push({ name: "GroupStage" });
     },
   },
