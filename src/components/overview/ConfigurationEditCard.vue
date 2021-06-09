@@ -1,6 +1,6 @@
 <template>
   <v-card class="fill-height" v-if="configuration">
-    <v-card-title>
+    <v-card-title class="mb-2">
       Konfiguration
       <v-spacer></v-spacer>
       <v-btn color="error" @click="onCancelClicked">
@@ -16,39 +16,71 @@
       konfiguriert wird.
     </v-card-subtitle>
     <v-container v-if="configuration">
-      <v-row>
-        <v-col cols="6"
-          ><p>
-            <v-icon class="mr-2" color="primary">mdi-account-group</v-icon>
-            Anzahl Gruppen:
-          </p></v-col
-        >
-        <v-col cols="6"
-          ><h4>{{ configuration.groupCount }}</h4></v-col
-        >
-      </v-row>
-      <v-row>
-        <v-col cols="6"
-          ><p>
-            <v-icon class="mr-2" color="primary">mdi-account</v-icon>
-            Spieler:
-          </p></v-col
-        >
-        <v-col cols="6"
-          ><h4>{{ players }}</h4></v-col
-        >
-      </v-row>
-      <v-row>
-        <v-col cols="6"
-          ><p>
-            <v-icon class="mr-2" color="primary">mdi-account-multiple</v-icon>
-            Teams:
-          </p></v-col
-        >
-        <v-col cols="6"
-          ><h4>{{ teams }}</h4></v-col
-        >
-      </v-row>
+      <v-form
+        v-model="specialTournamentConfig.isValid"
+        ref="editConfigForm"
+      >
+        <v-row>
+          <v-col cols="6"
+            ><p>
+              <v-icon class="mr-2" color="primary">mdi-account-group</v-icon>
+              Anzahl Gruppen:
+            </p></v-col
+          >
+          <v-col cols="6">
+            <v-text-field
+              v-model="specialTournamentConfig.groupCount"
+              type="number"
+              min="1"
+              max="32"
+              label="Anzahl Gruppen"
+              outlined
+              required
+              @input="validate"
+          /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="6"
+            ><p>
+              <v-icon class="mr-2" color="primary">mdi-account</v-icon>
+              Spieler:
+            </p></v-col
+          >
+          <v-col cols="6">
+            <v-text-field
+              v-model="specialTournamentConfig.teamCount"
+              type="number"
+              min="2"
+              max="192"
+              label="Anzahl aller Teams"
+              :rules="teamCountRules"
+              outlined
+              required
+              @input="validate"
+          /></v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="6"
+            ><p>
+              <v-icon class="mr-2" color="primary">mdi-account-multiple</v-icon>
+              Teams:
+            </p></v-col
+          >
+          <v-col cols="6"
+            >   <v-textarea
+            v-model.trim="specialTournamentConfig.teams"
+            :label="teamLabel"
+            placeholder="Mit + Komma, getrennt + oder
+neue + Zeile"
+            :rules="teamCountRules"
+            required
+            outlined
+            rows="2"
+            @input="validate"
+          /></v-col
+          >
+        </v-row>
+      </v-form>
     </v-container>
   </v-card>
 
@@ -78,7 +110,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     configuration: {
@@ -87,7 +118,23 @@ export default {
     },
   },
   data() {
-    return {};
+    const tstr = ""
+    const tms = this.configuration.teams ?? []
+    tms.forEach(t => tstr += t.name + "\n")
+
+    const pstr = ""
+    const plrs = this.configuration.players ?? []
+    plrs.forEach(p => pstr += p.name + "\n")
+
+    return {
+      specialTournamentConfig: {
+        isValid: true,
+        groupCount: 1,
+        teamCount: 4,
+        players: pstr,
+        teams: tstr
+      },
+    };
   },
 
   methods: {
@@ -97,25 +144,34 @@ export default {
     onCancelClicked() {
       this.$emit("exit");
     },
+    validate() {
+      this.$refs.editConfigForm.validate();
+    },
   },
   computed: {
-    teams() {
-      if (!this.configuration || !this.configuration.teams) return "-/-";
-      try {
-        const json = JSON.parse(this.configuration.teams);
-        return json;
-      } catch (error) {
-        return this.configuration.teams;
-      }
+    teamArray() {
+      return this.specialTournamentConfig.teams
+        .slice()
+        .replace(new RegExp("\r?\n", "g"), ",")
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
     },
-    players() {
-      if (!this.configuration || !this.configuration.players) return "-/-";
-      try {
-        const json = JSON.parse(this.configuration.players);
-        return json;
-      } catch (error) {
-        return this.configuration.players;
-      }
+    teamCount() {
+      return this.teamArray ? this.teamArray.length : 0;
+    },
+    teamLabel() {
+      return "Teamnamen: Aktuell " + this.teamCount + " Teams";
+    },
+    teamCountRules() {
+      return [
+        (v) =>
+          (v &&
+            this.teamCount >= 2 * this.specialTournamentConfig.groupCount) ||
+          "Mindestens 2 Teams pro Gruppe (Benötigte Teams: " +
+            2 * this.specialTournamentConfig.groupCount +
+            ").",
+      ];
     },
   },
 };
