@@ -7,7 +7,6 @@
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
     </v-card-title>
-    <v-card-subtitle> Die Basisinformationen zum Turnier. </v-card-subtitle>
     <v-container>
        <v-row>
         <v-col cols="6"
@@ -41,9 +40,6 @@
     <v-card-title>
       Basisinformationen
     </v-card-title>
-    <v-card-subtitle>
-      Aktuell können leider keine Informationen zum Turnier angezeigt werden.
-    </v-card-subtitle>
   </v-card>
 </template>
 
@@ -62,10 +58,6 @@ export default {
     formatDate(date) {
       if (!date) return "Unbekannt";
       return moment(date).format("DD.MM.YYYY HH:mm");
-    },
-    onSelect() {
-      this.$store.state.tournament.current = this.tournament;
-      this.$router.push({ name: "GroupStage" });
     },
     onEdit() {
       this.$emit("edit");
