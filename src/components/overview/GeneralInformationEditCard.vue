@@ -1,12 +1,17 @@
 <template>
   <v-card class="fill-height">
-    <v-card-title>
+    <v-card-title class="mb-2">
       Basisinformationen
       <v-spacer></v-spacer>
       <v-btn color="error" @click="onCancelClicked">
         <v-icon>mdi-close</v-icon>
       </v-btn>
-      <v-btn color="primary" class="ml-2" @click="onSaveClicked" :disabled="!tournamentConfig.isValid">
+      <v-btn
+        color="primary"
+        class="ml-2"
+        @click="onSaveClicked"
+        :disabled="!tournamentConfig.isValid"
+      >
         <v-icon>mdi-check</v-icon>
       </v-btn>
     </v-card-title>
@@ -103,7 +108,7 @@
 </template>
 
 <script>
-import { updateTournament } from '../../services/TournamentService';
+import { updateTournament } from "../../services/TournamentService";
 export default {
   props: {
     tournament: {
@@ -112,7 +117,7 @@ export default {
     },
   },
   data() {
-    const split = this.splitDateTime(this.tournament.startDate)
+    const split = this.splitDateTime(this.tournament.startDate);
     return {
       tab: null,
       tournamentConfig: {
@@ -144,9 +149,14 @@ export default {
       return { date: dt.format("YYYY-MM-DD"), time: dt.format("HH:mm") };
     },
     onSaveClicked() {
-      if(this.tournamentConfig.isValid){
-        this.tournament.name = this.tournamentConfig.name
-        updateTournament(this.tournament)
+      if (this.tournamentConfig.isValid) {
+        this.tournament.name = this.tournamentConfig.name;
+        (this.tournament.startDate =
+          this.tournamentConfig.startDate +
+          " " +
+          this.tournamentConfig.startTime +
+          ":00"),
+          updateTournament(this.tournament);
       }
       this.$emit("exit");
     },
