@@ -7,6 +7,7 @@ import TournamentCreation from "@/views/creation/TournamentCreation";
 import CreationSuccess from "@/views/creation/CreationSuccess";
 import ManagingLanding from "@/views/managing/ManagingLanding";
 import TournamentOverview from "@/views/managing/TournamentOverview"
+import PageNotFound from "@/views/PageNotFound"
 
 import CreationAppBar from "@/components/toolbar/CreationAppBar";
 import TournamentAppBar from "@/components/toolbar/TournamentAppBar";
@@ -63,11 +64,13 @@ const routes = [
             default: GroupStage,
             toolbar: TournamentAppBar
         }
-    }
+    },
+    { path: '*', component: PageNotFound }
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    //mode: 'history',
+    //root: '/',
     routes
 })
 
