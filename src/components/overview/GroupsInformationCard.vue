@@ -1,21 +1,17 @@
 <template>
   <v-card class="fill-height" v-if="tournament">
-    <v-card-title>
-      Gruppen
+    <v-card-title class="mb-2">
+      Gruppen ({{ tournament.groups.length }})
       <v-spacer></v-spacer>
       <v-btn color="primary" @click="onEdit" :disabled="true">
         <v-icon>mdi-pencil</v-icon>
       </v-btn>
     </v-card-title>
+    <v-card-subtitle>
+      Hier siehst du die aktulle Konfiguration der Gruppen mit den Einteilungen
+      der Teams und dem erstellten Spielplan.
+    </v-card-subtitle>
     <v-container>
-      <v-row>
-        <v-col cols="12"
-          ><p>
-            <v-icon class="mr-2" color="primary">mdi-account-group</v-icon>
-            {{ tournament.groups.length }} Gruppen:
-          </p></v-col
-        >
-      </v-row>
       <v-row>
         <v-col
           cols="12"
@@ -25,9 +21,9 @@
         >
           <v-row>
             <v-col cols="12">
-              <h3>{{group.name}}</h3>
+              <h3>{{ group.name }}</h3>
             </v-col>
-          
+
             <v-col cols="6">
               <v-row>
                 <v-col cols="12">
