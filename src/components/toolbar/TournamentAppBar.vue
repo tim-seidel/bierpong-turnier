@@ -67,7 +67,7 @@
                   <h1>Turnier speichern</h1>
                 </v-col>
                 <v-col cols="12">
-                  <a class="save-link" download="tournament.txt" :href="fileUrl"
+                  <a class="save-link" download="tournament.json" :href="fileUrl"
                     >Datei herunterladen</a
                   >
                 </v-col>
@@ -103,7 +103,7 @@
             </v-row>
             <v-row>
               <v-col cols="12">
-                <a class="save-link" download="tournament.txt" :href="fileUrl">
+                <a class="save-link" download="tournament.json" :href="fileUrl">
                   Kopie Speichern</a
                 >
               </v-col>
@@ -182,8 +182,8 @@ export default Vue.extend({
         return "";
       }
 
-      const json = TournamentToJson(this.tournament);
-      const file = new Blob([json], { type: "text/plain" });
+      const json = convertTournamentToJson(this.tournament);
+      const file = new Blob([JSON.stringify(json)], { type: "text/json" });
       return URL.createObjectURL(file);
     },
 
