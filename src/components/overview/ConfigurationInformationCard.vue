@@ -1,6 +1,6 @@
 <template>
   <v-card class="fill-height" v-if="configuration">
-    <v-card-title>
+    <v-card-title class="mb-2">
       Konfiguration
       <v-spacer></v-spacer>
       <v-btn color="primary" @click="onEdit" disabled>
@@ -14,14 +14,32 @@
     </v-card-subtitle>
     <v-container v-if="configuration">
       <v-row>
-        <v-col cols="6"
+        <v-col cols="6" md="3"
           ><p>
             <v-icon class="mr-2" color="primary">mdi-account-group</v-icon>
             Anzahl Gruppen:
           </p></v-col
         >
-        <v-col cols="6"
-          ><h4>{{ configuration.groupCount }}</h4></v-col
+        <v-col cols="6" md="3"
+          ><h4>
+            {{
+              configuration.groupCount
+                ? configuration.groupCount
+                : "Nicht eingestellt"
+            }}
+          </h4>
+        </v-col>
+        <v-col cols="6" md="3"
+          ><p>
+            <v-icon class="mr-2" color="primary">mdi-account-multiple</v-icon>
+            Anzahl Teams:
+          </p></v-col
+        >
+        <v-col cols="6" md="3"
+          ><h4 v-if="configuration.teamCount">
+            {{ configuration.teamCount }}
+          </h4>
+          <p v-else>Nicht eingestellt</p></v-col
         >
       </v-row>
       <v-row>
@@ -32,7 +50,10 @@
           </p></v-col
         >
         <v-col cols="6"
-          ><h4>{{ players }}</h4></v-col
+          ><h4 v-if="configuration.players && configuration.players.length > 0">
+            {{ configuration.players }}
+          </h4>
+          <p v-else>Nicht eingestellt</p></v-col
         >
       </v-row>
       <v-row>
@@ -43,7 +64,10 @@
           </p></v-col
         >
         <v-col cols="6"
-          ><h4>{{ teams }}</h4></v-col
+          ><h4 v-if="configuration.teams && configuration.teams.length > 0">
+            {{ configuration.teams }}
+          </h4>
+          <p v-else>Nicht eingestellt</p></v-col
         >
       </v-row>
     </v-container>
