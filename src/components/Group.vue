@@ -133,7 +133,7 @@
               <team-chip
                 :name="item.name"
                 :color="colors[group.teams.indexOf(item)]"
-              ></team-chip>
+              />
               <template v-slot:input>
                 <v-text-field
                   v-model="teamNameInput"
