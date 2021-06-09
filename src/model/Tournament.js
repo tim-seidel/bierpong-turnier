@@ -6,6 +6,5 @@ export default class Tournament {
     this.groups = []
     this.maxTeams = 0
     this.configuration = undefined
-    this.password = undefined
   }
 }
