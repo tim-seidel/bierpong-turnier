@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container style="max-width: 1200px" >
     <v-card class="mt-2">
       <v-card-title>
         Gib die Kenndaten zum Turnier ein:
