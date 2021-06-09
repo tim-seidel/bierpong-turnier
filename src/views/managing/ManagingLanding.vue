@@ -1,6 +1,12 @@
 <template>
   <v-container>
     <v-row>
+      <v-col align="right" cols="12">
+        <v-btn class="mr-2" color="primary" @click="onCreateTournamentClicked">
+          <v-icon>mdi-plus</v-icon>
+          Neues Turnier
+        </v-btn>
+      </v-col>
       <v-col cols="12" md="6">
         <tournament-list
           :loading="isLoading"
@@ -51,6 +57,9 @@ export default Vue.extend({
         name: "TournamentOverview",
         params: { tournamentId: item.id },
       });
+    },
+    onCreateTournamentClicked() {
+      this.$router.push({ name: "TournamentCreation" });
     },
   },
   computed: {
