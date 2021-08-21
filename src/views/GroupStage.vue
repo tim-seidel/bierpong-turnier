@@ -61,6 +61,7 @@ export default {
             groupId: change.groupId,
             teamId: change.teamId,
             name: change.name,
+            color: change.color
           });
           break;
         }

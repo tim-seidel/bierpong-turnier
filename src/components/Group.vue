@@ -26,7 +26,7 @@
           <template v-slot:[`item.team1.name`]="{ item }">
             <team-chip
               :name="item.team1.name"
-              :color="$store.state.layout.isColoredTeamsEnabled ? colors[group.teams.indexOf(item.team1)]: 'primary'"
+              :color="$store.state.layout.isColoredTeamsEnabled ? item.team1.color: 'primary'"
             />
           </template>
 
@@ -97,7 +97,7 @@
           <template v-slot:[`item.team2.name`]="{ item }">
             <team-chip
               :name="item.team2.name"
-              :color="$store.state.layout.isColoredTeamsEnabled ? colors[group.teams.indexOf(item.team2)]: 'primary'"
+              :color="$store.state.layout.isColoredTeamsEnabled ? item.team2.color: 'primary'"
               right
             />
           </template>
@@ -132,7 +132,7 @@
             >
               <team-chip
                 :name="item.name"
-                :color="$store.state.layout.isColoredTeamsEnabled ? colors[group.teams.indexOf(item)]: 'primary'"
+                :color="$store.state.layout.isColoredTeamsEnabled ? item.color : 'primary'"
               />
               <template v-slot:input>
                 <v-text-field
@@ -176,14 +176,6 @@ export default {
     return {
       beerInput: "",
       teamNameInput: "",
-      colors: [
-        "#DDD92A",
-        "#6E2594",
-        "#5FAD56",
-        "#F34213",
-        "#6CD4FF",
-        "#9B97B2",
-      ],
       expandedTables: [0, 1],
       footerProps: {
         "items-per-page-text": "Spiele pro Seite",
@@ -369,6 +361,7 @@ export default {
         groupId: this.group.id,
         teamId: team.id,
         name: team.name,
+        color: team.color
       });
     },
   },

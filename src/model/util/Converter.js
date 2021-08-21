@@ -35,7 +35,9 @@ export function convertJsonToTournament(jTournament) {
         )
 
         jGroup.teams.forEach(jTeam => {
-            teams.push(new Team(jTeam.id, jTeam.name))
+            const team = new Team(jTeam.id, jTeam.name)
+            team.color = jTeam.color
+            teams.push(team)
         })
 
         jGroup.games.forEach(jGame => {
@@ -79,7 +81,8 @@ export function convertTournamentToJson(tournament) {
         group.teams.forEach(team => {
             jTeams.push({
                 id: team.id,
-                name: team.name
+                name: team.name,
+                color: team.color
             })
         })
 

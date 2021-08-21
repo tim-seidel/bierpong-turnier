@@ -6,5 +6,6 @@ export default class Team {
     this.points = 0
     this.beersGood = 0
     this.beersBad = 0
+    this.color = "primary"
   }
 }
