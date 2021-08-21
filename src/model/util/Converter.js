@@ -41,9 +41,8 @@ export function convertJsonToTournament(jTournament) {
         })
 
         jGroup.games.forEach(jGame => {
-
-            const t1 = teams.find(t => t.id == jGame.team1Id)
-            const t2 = teams.find(t => t.id == jGame.team2Id)
+            const t1 = teams.find(t => t.id === jGame.team1Id)
+            const t2 = teams.find(t => t.id === jGame.team2Id)
 
             if (!t1 || !t2) return
 
@@ -93,7 +92,7 @@ export function convertTournamentToJson(tournament) {
                 team2Id: game.team2.id,
                 team1Score: game.score.beers1,
                 team2Score: game.score.beers2,
-                order: game.oder
+                order: game.order
             })
         })
 
