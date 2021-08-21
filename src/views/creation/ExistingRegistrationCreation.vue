@@ -3,10 +3,12 @@
     <v-row>
       <v-col>
         <p>Hier kannst Du bestehende Anmeldungen von Teams importieren.</p>
+        <p>Coming soon (tm)</p>
       </v-col>
     </v-row>
 
     <v-form
+        v-if="false"
       v-model="specialTournamentConfig.isValid"
       ref="registrationCreationForm"
     >
@@ -60,7 +62,7 @@ neue + Zeile"
         </v-col>
       </v-row>
     </v-form>
-    <v-row>
+    <v-row v-if="false">
       <v-col cols="6">
         <v-btn v-if="false"
           color="primary"
