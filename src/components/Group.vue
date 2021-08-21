@@ -105,7 +105,7 @@
       </v-expansion-panel-content>
     </v-expansion-panel>
     <v-expansion-panel>
-      <v-expansion-panel-header color="accent" style="font-size: 1.3rem"
+      <v-expansion-panel-header style="font-size: 1.3rem"
         >Tabelle</v-expansion-panel-header
       >
       <v-expansion-panel-content>
