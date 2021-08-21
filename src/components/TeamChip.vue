@@ -46,20 +46,6 @@ export default {
     }
   },
   computed: {
-    player1Name() {
-      const parts = this.name.split("+");
-      if (!parts || parts.length === 0) return "";
-      if (parts.length >= 1) {
-        return parts[0].trim();
-      }
-    },
-    player2Name() {
-      const parts = this.name.split("+");
-      if (!parts || parts.length < 2) return "";
-      if (parts.length >= 2) {
-        return parts[1].trim();
-      }
-    },
     initials() {
       const parts = this.name
         .slice()

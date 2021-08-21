@@ -10,7 +10,8 @@ export default new Vuex.Store({
         layout: {
             groupsPerRow: 2,
             isPaginationEnabled: false,
-            gamesPerPage: 6
+            gamesPerPage: 6,
+            isColoredTeamsEnabled: true
         },
     },
     mutations: {},

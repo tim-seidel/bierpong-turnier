@@ -37,6 +37,18 @@
 
     <v-row>
       <v-col class="pb-0" cols="12">
+        <h3>Design</h3>
+      </v-col>
+      <v-col class="pb-0" cols="12">
+        <v-switch
+            class="mt-0 mb-6"
+            label="Teams mit Farben"
+            v-model="$store.state.layout.isColoredTeamsEnabled"/>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col class="pb-2" cols="12">
         <h3>Sichtbare Gruppen</h3>
       </v-col>
       <v-col cols="6" sm="4" v-for="group in groups" :key="group.id" class="pb-0 pt-0">

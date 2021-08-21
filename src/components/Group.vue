@@ -26,7 +26,7 @@
           <template v-slot:[`item.team1.name`]="{ item }">
             <team-chip
               :name="item.team1.name"
-              :color="colors[group.teams.indexOf(item.team1)]"
+              :color="$store.state.layout.isColoredTeamsEnabled ? colors[group.teams.indexOf(item.team1)]: 'primary'"
             />
           </template>
 
@@ -97,7 +97,7 @@
           <template v-slot:[`item.team2.name`]="{ item }">
             <team-chip
               :name="item.team2.name"
-              :color="colors[group.teams.indexOf(item.team2)]"
+              :color="$store.state.layout.isColoredTeamsEnabled ? colors[group.teams.indexOf(item.team2)]: 'primary'"
               right
             />
           </template>
@@ -132,7 +132,7 @@
             >
               <team-chip
                 :name="item.name"
-                :color="colors[group.teams.indexOf(item)]"
+                :color="$store.state.layout.isColoredTeamsEnabled ? colors[group.teams.indexOf(item)]: 'primary'"
               />
               <template v-slot:input>
                 <v-text-field
@@ -305,21 +305,7 @@ export default {
       }
     },
   },
-
   methods: {
-    isTeamLoser(teamPos, score) {
-      console.log(teamPos, score.beers1, score.beers2);
-      if (score.beers1 === undefined || score.beers2 === undefined) {
-        return false;
-      }
-      if (teamPos === 1) {
-        return score.beers1 > score.beers2;
-      }
-      if (teamPos === 2) {
-        return score.beers2 > score.beers1;
-      }
-      return false;
-    },
     getGameResultStyling(teamPos, score) {
       if (
         (score.beers1 === undefined && teamPos === 1) ||
