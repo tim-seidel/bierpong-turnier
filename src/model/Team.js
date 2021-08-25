@@ -1,3 +1,12 @@
+export const colors = [
+  '#DDD92A',
+  '#6E2594',
+  '#5FAD56',
+  '#F34213',
+  '#6CD4FF',
+  '#9B97B2',
+]
+
 export default class Team {
   constructor(id, name) {
     this.id = id

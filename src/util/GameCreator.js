@@ -2,9 +2,14 @@ import Game from "../model/Game"
 import Score from "../model/Score"
 
 import { v4 as uuid } from "uuid";
+import {colors} from "../model/Team";
 
 export function createGames(group) {
     const teamCount = group ? group.teams.length : 0
+
+    group.teams.forEach((t, index) => {
+        t.color = colors[index%colors.length]
+    })
 
     if (teamCount < 2) return []
 
@@ -53,8 +58,8 @@ export function getTeamParings(numberOfTeams) {
                 { first: 3, second: 1 },
                 { first: 4, second: 2 },
                 { first: 5, second: 3 },
-                { first: 1, second: 2 },
-                { first: 4, second: 5 },
+                { first: 2, second: 1 },
+                { first: 5, second: 4 },
                 { first: 3, second: 2 },
                 { first: 1, second: 5 },
                 { first: 4, second: 3 }
