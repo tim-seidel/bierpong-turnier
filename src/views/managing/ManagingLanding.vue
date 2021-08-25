@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col align="right" cols="12">
-        <v-btn class="mr-2" color="primary" @click="onCreateTournamentClicked">
+      <v-col cols="12">
+        <v-btn class="ml-3" color="primary" @click="onCreateTournamentClicked">
           <v-icon>mdi-plus</v-icon>
           Neues Turnier
         </v-btn>

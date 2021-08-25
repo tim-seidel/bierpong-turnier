@@ -1,7 +1,7 @@
 <template>
-  <v-container style="max-width: 800px;">
+  <v-container style="max-width: 900px;">
     <v-card>
-      <v-card-title class="justify-center">Herzlich Willkommen!</v-card-title>
+      <v-card-title class="justify-center" style="font-size: 2em">Turnier!</v-card-title>
       <v-card-text>
         <v-img
           class="mb-4"
