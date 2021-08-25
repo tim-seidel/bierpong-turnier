@@ -29,8 +29,9 @@ function insertOrUpdateTournaments(tournament) {
 
     const existing = tournaments.find(t => t.id === tournament.id)
     if (existing) {
-        existing.name = tournament.name
-        existing.startDate = tournament.startDate
+        existing.name = general.name
+        existing.startDate = general.startDate
+        existing.teamCount = general.teamCount
     } else {
         tournaments.push(general)
     }
