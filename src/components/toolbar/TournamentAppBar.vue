@@ -9,7 +9,7 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-      <v-btn @click="dialogAdd = true" icon disabled>
+      <v-btn @click="dialogAdd = true" icon>
         <v-icon>mdi-plus-box</v-icon>
       </v-btn>
 
