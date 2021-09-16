@@ -1,7 +1,7 @@
 <template>
   <v-card class="fill-height" v-if="configuration">
     <v-card-title class="mb-2">
-      Konfiguration
+      Ursprüngliche Konfiguration
       <v-spacer></v-spacer>
       <v-btn color="primary" @click="onEdit" disabled>
         <v-icon>mdi-pencil</v-icon>
@@ -75,7 +75,7 @@
 
   <v-card class="fill-height" v-else>
     <v-card-title>
-      Konfiguration
+      Ursprüngliche Konfiguration
       <v-spacer></v-spacer>
       <v-btn color="primary" @click="onAdd" disabled>
         <v-icon>mdi-plus</v-icon>
