@@ -94,6 +94,7 @@ import Vue from "vue";
 
 import AddToTournament from "@/components/dialog/AddToTournament";
 import LayoutOptions from "@/components/dialog/LayoutOptions";
+import {convertJsonToTournament} from "../../util/Converter";
 
 export default Vue.extend({
   components: {
@@ -121,6 +122,20 @@ export default Vue.extend({
     groups() {
       return this.tournament?.groups ?? [];
     },
+    fileUrl() {
+      if (!this.tournament) {
+        return "";
+      }
+
+      const json = convertJsonToTournament(this.tournament);
+      const file = new Blob([JSON.stringify(json)], {type: "text/json"});
+      return URL.createObjectURL(file);
+    },
+    fileName() {
+      return this.appTitle + ".json"
+    }
+  },
+  methods: {
     onEndTournament() {
       localStorage.removeItem("currentTournamentId");
       this.$store.state.tournament.current = null;
@@ -129,3 +144,22 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style scoped>
+.save-link {
+  border: thin solid steelblue;
+  border-radius: 4px;
+  align-items: center;
+  font-weight: 500;
+  letter-spacing: 0.089em;
+  display: inline-flex;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: 36px;
+  padding: 0 16px;
+}
+
+.save-link:hover {
+  background-color: lightblue;
+}
+</style>
