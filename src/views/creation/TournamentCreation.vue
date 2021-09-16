@@ -137,7 +137,6 @@ import TeamCreation from "./TeamCreation";
 import PlayerCreation from "./PlayerCreation";
 import ManualCreation from "./ManualCreation";
 import ExistingRegistrationCreation from "./ExistingRegistrationCreation";
-import SavefileCreation from "./SavefileCreation";
 
 export default {
   components: {
@@ -145,7 +144,6 @@ export default {
     PlayerCreation,
     ManualCreation,
     ExistingRegistrationCreation,
-    SavefileCreation,
   },
   data: () => {
     return {
