@@ -2,20 +2,20 @@
   <v-container>
     <v-row v-if="!isLoading">
       <v-col cols="12">
-        <tournament-information-header-card :tournament="tournament" />
+        <tournament-information-header-card :tournament="tournament"/>
       </v-col>
 
       <v-col cols="12" md="6">
         <transition name="flip" mode="out-in">
           <general-information-edit-card
-            v-if="edit.isEditingGeneralInformation"
-            :tournament="tournament"
-            @exit="requestGeneralInformationExit"
+              v-if="edit.isEditingGeneralInformation"
+              :tournament="tournament"
+              @exit="requestGeneralInformationExit"
           />
           <general-information-card
-            v-else
-            :tournament="tournament"
-            @edit="requestGeneralInformationEdit"
+              v-else
+              :tournament="tournament"
+              @edit="requestGeneralInformationEdit"
           />
         </transition>
       </v-col>
@@ -23,27 +23,27 @@
       <v-col cols="12" md="6">
         <transition name="flip" mode="out-in">
           <configuration-edit-card
-            v-if="edit.isEditingConfiguration"
-            :configuration="configuration"
-            @exit="requestConfigurationExit"
+              v-if="edit.isEditingConfiguration"
+              :configuration="configuration"
+              @exit="requestConfigurationExit"
           />
           <configuration-information-card
-            v-else
-            :configuration="configuration"
-            @edit="requestConfigurationEdit"
+              v-else
+              :configuration="configuration"
+              @edit="requestConfigurationEdit"
           />
         </transition>
       </v-col>
 
       <v-col cols="12">
-        <groups-information-card :tournament="tournament" />
+        <groups-information-card :tournament="tournament"/>
       </v-col>
     </v-row>
 
     <v-row v-if="isLoading">
       <v-col cols="12">
         <v-card :loading="isLoading">
-          <v-card-title> Lade Turnier... </v-card-title>
+          <v-card-title> Lade Turnier...</v-card-title>
           <v-card-subtitle>
             Sobald das Turnier geladen ist werden die Informationen angezeigt :)
           </v-card-subtitle>
@@ -91,7 +91,7 @@ export default {
     const id = this.$route.params.tournamentId;
     if (!id) return;
     this.tournament = await getTournament(id)
-    if (this.tournament ) {
+    if (this.tournament) {
       console.log("TournamentOverview", this.tournament)
       this.configuration = this.tournament.configuration
     }
@@ -131,9 +131,11 @@ export default {
 .flip-enter-active {
   animation: flip-in 0.3s ease-out;
 }
+
 .flip-leave-active {
   animation: flip-out 0.3s ease-out;
 }
+
 @keyframes flip-out {
   from {
     transform: scaleY(1);
@@ -142,6 +144,7 @@ export default {
     transform: scaleY(0);
   }
 }
+
 @keyframes flip-in {
   from {
     transform: scaleY(0);

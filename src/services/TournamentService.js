@@ -1,24 +1,20 @@
-import { v4 as uuid } from 'uuid'
+import {v4 as uuid} from 'uuid'
 
 import Tournament from "../model/Tournament"
-import { createTeamsFromCount, createTeamsFromNames, createTeamsFromPlayers } from "../util/TeamCreator";
-import { createGroups } from "../util/GroupCreator";
-import { createGames } from "../util/GameCreator";
+import {createTeamsFromCount, createTeamsFromNames, createTeamsFromPlayers} from "../util/TeamCreator";
+import {createGroups} from "../util/GroupCreator";
+import {createGames} from "../util/GameCreator";
 
-import * as LocalStorageDatatbase from "./LocalStorageDatabase"
-import { convertJsonToTournament } from '../model/util/Converter';
+import * as LocalStorageDatabase from "./LocalStorageDatabase"
+import {convertJsonToTournament} from '../util/Converter';
 
 export function getTournaments() {
-    const result = LocalStorageDatatbase.getTournaments();
-    return result
+    return LocalStorageDatabase.getTournaments()
 }
 
 export function getTournament(id) {
-    const json = LocalStorageDatatbase.getTournament(id)
-    console.log(json)
-    const tournament = convertJsonToTournament(json)
-
-    return tournament
+    const json = LocalStorageDatabase.getTournament(id)
+    return convertJsonToTournament(json)
 }
 
 export function createTournament(config) {
@@ -33,7 +29,8 @@ export function createTournament(config) {
         case "team":
             grps = convertTeamConfigToGroups(config)
             break
-        default: throw new Error("Unkown tournament config type.")
+        default:
+            throw new Error("Unknown tournament config type.")
     }
 
     const tournament = new Tournament(uuid(), config.name, config.startDate)
@@ -45,18 +42,18 @@ export function createTournament(config) {
         teams: config.teams ?? []
     }
 
-    LocalStorageDatatbase.createTournament(tournament)
+    LocalStorageDatabase.createTournament(tournament)
     return tournament
 }
 
 export function updateTournament(tournament) {
     if (tournament) {
-        LocalStorageDatatbase.updateTournament(tournament)
+        LocalStorageDatabase.updateTournament(tournament)
     }
 }
 
 export function deleteTournament(id) {
-    LocalStorageDatatbase.deleteTournament(id)
+    LocalStorageDatabase.deleteTournament(id)
 }
 
 export function updateTeam(tournament, params) {
@@ -65,7 +62,7 @@ export function updateTeam(tournament, params) {
         const team = group.teams.find(t => t.id === params.teamId)
         if (team) {
             team.name = params.name
-            LocalStorageDatatbase.updateTournament(tournament)
+            LocalStorageDatabase.updateTournament(tournament)
             return true
         }
     }
@@ -80,7 +77,7 @@ export function updateGame(tournament, params) {
         if (game) {
             game.score = params.score
 
-            LocalStorageDatatbase.updateTournament(tournament)
+            LocalStorageDatabase.updateTournament(tournament)
             return true
         }
     }
