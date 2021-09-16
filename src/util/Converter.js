@@ -1,10 +1,10 @@
 import moment from "moment"
 
-import Game from "../Game"
-import Group from "../Group"
-import Score from "../Score"
-import Team from "../Team"
-import Tournament from "../Tournament"
+import Game from "../model/Game"
+import Group from "../model/Group"
+import Score from "../model/Score"
+import Team from "../model/Team"
+import Tournament from "../model/Tournament"
 
 export function convertJsonToTournament(jTournament) {
     if (!jTournament) return undefined

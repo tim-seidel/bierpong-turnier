@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 import Group from "../model/Group";
+import {colors} from "../model/Team";
 
 export function createGroups(teams, groupCount) {
     if (!teams || teams.length === 0 || groupCount < 1) {
@@ -16,6 +17,12 @@ export function createGroups(teams, groupCount) {
     for (let t = 0; t < teamCount; t++) {
         groups[t % groupCount].teams.push(teams[t])
     }
+
+    groups.forEach(g => {
+        g.teams.forEach((t, index) => {
+            t.color = colors[index % colors.length]
+        })
+    })
 
     return groups
 }
