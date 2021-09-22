@@ -5,8 +5,8 @@ export function createTeamsFromPlayers(players) {
     if (!players || players.length === 0) return []
 
     const teams = []
+    const t_count = Math.floor(players.length / 2)
 
-    const t_count = players.length / 2
     for (let t = 0; t < t_count; t++) {
         teams.push(new Team(
             uuid(),
@@ -14,7 +14,7 @@ export function createTeamsFromPlayers(players) {
         ))
     }
 
-    if (t_count % 2 === 1) {
+    if (players.length % 2) {
         teams.push(new Team(
             uuid(),
             players[t_count - 1]
