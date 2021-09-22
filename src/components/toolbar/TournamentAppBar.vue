@@ -94,7 +94,7 @@ import Vue from "vue";
 
 import AddToTournament from "@/components/dialog/AddToTournament";
 import LayoutOptions from "@/components/dialog/LayoutOptions";
-import {convertJsonToTournament} from "../../util/Converter";
+import {convertTournamentToJson} from "../../util/Converter";
 
 export default Vue.extend({
   components: {
@@ -127,7 +127,7 @@ export default Vue.extend({
         return "";
       }
 
-      const json = convertJsonToTournament(this.tournament);
+      const json = convertTournamentToJson(this.tournament);
       const file = new Blob([JSON.stringify(json)], {type: "text/json"});
       return URL.createObjectURL(file);
     },
