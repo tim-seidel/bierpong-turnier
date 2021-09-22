@@ -1,23 +1,26 @@
 import { v4 as uuid } from 'uuid'
 import Team from '../model/Team'
+import {randomizePlayers, randomizeTeams} from "./Randomizer";
 
 export function createTeamsFromPlayers(players) {
     if (!players || players.length === 0) return []
 
+    const randomized = randomizePlayers(players)
+
     const teams = []
-    const t_count = Math.floor(players.length / 2)
+    const t_count = Math.floor(randomized.length / 2)
 
     for (let t = 0; t < t_count; t++) {
         teams.push(new Team(
             uuid(),
-            players[2 * t] + " + " + players[2 * t + 1]
+            randomized[2 * t] + " + " + randomized[2 * t + 1]
         ))
     }
 
-    if (players.length % 2) {
+    if (randomized.length % 2) {
         teams.push(new Team(
             uuid(),
-            players[t_count - 1]
+            randomized[t_count - 1]
         ))
     }
 
@@ -36,9 +39,11 @@ export function createTeamsFromCount(teamCount) {
 export function createTeamsFromNames(names) {
     if (!names || names.length === 0) return []
 
+    const randomized = randomizeTeams(names)
+
     const teams = []
-    names.forEach(n => {
-        teams.push(new Team(uuid(), n))
+    randomized.forEach(name => {
+        teams.push(new Team(uuid(), name))
     })
 
     return teams
