@@ -1,13 +1,13 @@
 <template>
-  <v-container style="max-width: 900px;">
-    <v-card>
-      <v-card-title class="justify-center" style="font-size: 2em">Turnier!</v-card-title>
-      <v-card-text>
+  <v-container fluid>
+    <v-card align="center" elevation="0">
+      <v-card-text style="max-width: 900px;" align="center">
         <v-img
           class="mb-4"
           :src="require('../assets/logo_small.png')"
           contain
         />
+        <p>Du kannst neue Tuniere auf Basis von Gruppen, Teams oder Spielern erstellen.<br> In der Turnierverwaltung kannst du erstellte Turniere starten/fortsetzen oder Speicherdateien laden. </p>
 
         <v-row>
           <v-col cols="12" sm="6">
