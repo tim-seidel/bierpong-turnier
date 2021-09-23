@@ -94,7 +94,7 @@ import Vue from "vue";
 
 import AddToTournament from "@/components/dialog/AddToTournament";
 import LayoutOptions from "@/components/dialog/LayoutOptions";
-import {convertTournamentToJson} from "../../util/Converter";
+import {convertTournamentToJson} from "../../util/TournamentConverter";
 
 export default Vue.extend({
   components: {

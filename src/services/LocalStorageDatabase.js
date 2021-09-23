@@ -1,4 +1,4 @@
-import { convertTournamentToJson } from "../util/Converter"
+import { convertTournamentToJson } from "../util/TournamentConverter"
 
 const KEY_TOURNAMENTS = "key_tournaments"
 const KEY_TOURNAMENT_WITH_ID = "key_tournament_"

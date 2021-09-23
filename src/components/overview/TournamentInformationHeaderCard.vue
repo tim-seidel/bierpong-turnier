@@ -76,7 +76,7 @@
 import * as moment from "moment";
 import {deleteTournament} from "../../services/TournamentService";
 import {sha256} from "js-sha256";
-import {convertJsonToTournament} from "../../util/Converter";
+import {convertJsonToTournament} from "../../util/TournamentConverter";
 
 export default {
   props: {

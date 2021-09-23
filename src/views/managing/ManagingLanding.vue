@@ -79,7 +79,7 @@ import Vue from "vue";
 import TournamentList from "@/components/TournamentList";
 
 import {getTournaments, updateTournament} from "../../services/TournamentService";
-import {convertJsonToTournament} from "../../util/Converter";
+import {convertJsonToTournament} from "../../util/TournamentConverter";
 
 import moment from "moment";
 import {sha256} from "js-sha256";

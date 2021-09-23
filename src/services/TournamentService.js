@@ -6,7 +6,7 @@ import {createGroups} from "../util/GroupCreator";
 import {createGames} from "../util/GameCreator";
 
 import * as LocalStorageDatabase from "./LocalStorageDatabase"
-import {convertJsonToTournament} from '../util/Converter';
+import {convertJsonToTournament} from '../util/TournamentConverter';
 
 export function getTournaments() {
     return LocalStorageDatabase.getTournaments()
