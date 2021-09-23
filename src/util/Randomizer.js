@@ -20,7 +20,7 @@ function randomize(playersOrTeams) {
 }
 
 function getMagicNumber() {
-    return Math.max(100, moment().unix() % 1000)
+    return Math.max(100, moment().get("milliseconds") % 1000)
 }
 
 //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
