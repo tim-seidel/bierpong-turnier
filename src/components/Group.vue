@@ -2,8 +2,8 @@
   <v-expansion-panels multiple accordion v-model="expandedTables">
     <v-expansion-panel>
       <v-expansion-panel-header
-        style="font-size: 1.3rem"
-        color="primary white--text"
+          style="font-size: 1.3rem"
+          color="primary white--text"
       >
         {{ group.name }}
         <template v-slot:actions>
@@ -12,12 +12,12 @@
       </v-expansion-panel-header>
       <v-expansion-panel-content>
         <v-data-table
-          :headers="gameHeaders"
-          :items="games"
-          mobile-breakpoint="400"
-          :hide-default-footer="!$store.state.layout.isPaginationEnabled"
-          :footer-props="footerProps"
-          :items-per-page="itemsPerPage"
+            :headers="gameHeaders"
+            :items="games"
+            mobile-breakpoint="400"
+            :hide-default-footer="!$store.state.layout.isPaginationEnabled"
+            :footer-props="footerProps"
+            :items-per-page="itemsPerPage"
         >
           <template v-slot:[`item.id`]="{ item }">
             <div class="numbering">{{ games.indexOf(item) + 1 }}</div>
@@ -25,36 +25,36 @@
 
           <template v-slot:[`item.team1.name`]="{ item }">
             <team-chip
-              :name="item.team1.name"
-              :color="$store.state.layout.isColoredTeamsEnabled ? item.team1.color: 'primary'"
+                :name="item.team1.name"
+                :color="$store.state.layout.isColoredTeamsEnabled ? item.team1.color: defaultColor"
             />
           </template>
 
           <template v-slot:[`item.score.beers1`]="{ item }">
             <v-edit-dialog
-              large
-              save-text="Speichern"
-              cancel-text="Abbrechen"
-              @open="beerInput = item.score.beers1"
-              @close="beerInput = undefined"
-              @save="saveBeer1Input(item)"
-              @cancel="beerInput = undefined"
+                large
+                save-text="Speichern"
+                cancel-text="Abbrechen"
+                @open="beerInput = item.score.beers1"
+                @close="beerInput = undefined"
+                @save="saveBeer1Input(item)"
+                @cancel="beerInput = undefined"
             >
               <div :class="[getGameResultStyling(1, item.score)]">
                 {{
                   item.score.beers1 !== undefined
-                    ? item.score.beers1
-                    : item.score.beers2 !== undefined
-                    ? ""
-                    : "-/-"
+                      ? item.score.beers1
+                      : item.score.beers2 !== undefined
+                          ? ""
+                          : "-/-"
                 }}
               </div>
               <template v-slot:input>
                 <v-text-field
-                  v-model="beerInput"
-                  type="number"
-                  label="Bearbeiten"
-                  single-line
+                    v-model="beerInput"
+                    type="number"
+                    label="Bearbeiten"
+                    single-line
                 />
               </template>
             </v-edit-dialog>
@@ -66,29 +66,29 @@
 
           <template v-slot:[`item.score.beers2`]="{ item }">
             <v-edit-dialog
-              large
-              cancel-text="Abbrechen"
-              save-text="Speichern"
-              @open="beerInput = item.score.beers2"
-              @close="beerInput = ''"
-              @save="saveBeer2Input(item)"
-              @cancel="beerInput = ''"
+                large
+                cancel-text="Abbrechen"
+                save-text="Speichern"
+                @open="beerInput = item.score.beers2"
+                @close="beerInput = ''"
+                @save="saveBeer2Input(item)"
+                @cancel="beerInput = ''"
             >
               <div :class="getGameResultStyling(2, item.score)">
                 {{
                   item.score.beers2 !== undefined
-                    ? item.score.beers2
-                    : item.score.beers1 !== undefined
-                    ? ""
-                    : "-/-"
+                      ? item.score.beers2
+                      : item.score.beers1 !== undefined
+                          ? ""
+                          : "-/-"
                 }}
               </div>
               <template v-slot:input>
                 <v-text-field
-                  v-model="beerInput"
-                  type="number"
-                  label="Bearbeiten"
-                  single-line
+                    v-model="beerInput"
+                    type="number"
+                    label="Bearbeiten"
+                    single-line
                 />
               </template>
             </v-edit-dialog>
@@ -96,25 +96,29 @@
 
           <template v-slot:[`item.team2.name`]="{ item }">
             <team-chip
-              :name="item.team2.name"
-              :color="$store.state.layout.isColoredTeamsEnabled ? item.team2.color: 'primary'"
-              right
+                :name="item.team2.name"
+                :color="$store.state.layout.isColoredTeamsEnabled ? item.team2.color: defaultColor"
+                right
             />
           </template>
         </v-data-table>
       </v-expansion-panel-content>
     </v-expansion-panel>
     <v-expansion-panel>
-      <v-expansion-panel-header style="font-size: 1.3rem"
-        >Tabelle</v-expansion-panel-header
+      <v-expansion-panel-header color="primary white--text" style="font-size: 1.3rem"
+      >Tabelle
+        <template v-slot:actions>
+          <v-icon color="white">mdi-chevron-down</v-icon>
+        </template>
+      </v-expansion-panel-header
       >
       <v-expansion-panel-content>
         <v-data-table
-          ref="standings"
-          :headers="teamHeaders"
-          :items="group.teams"
-          mobile-breakpoint="400"
-          hide-default-footer
+            ref="standings"
+            :headers="teamHeaders"
+            :items="group.teams"
+            mobile-breakpoint="400"
+            hide-default-footer
         >
           <template v-slot:[`item.id`]="{ item }">
             <div class="numbering">{{ group.teams.indexOf(item) + 1 }}</div>
@@ -122,25 +126,25 @@
 
           <template v-slot:[`item.name`]="{ item }">
             <v-edit-dialog
-              large
-              save-text="Übernehmen"
-              cancel-text="Abbrechen"
-              @open="teamNameInput = item.name"
-              @close="teamNameInput = ''"
-              @cancel="teamNameInput = ''"
-              @save="saveTeamName(item)"
+                large
+                save-text="Übernehmen"
+                cancel-text="Abbrechen"
+                @open="teamNameInput = item.name"
+                @close="teamNameInput = ''"
+                @cancel="teamNameInput = ''"
+                @save="saveTeamName(item)"
             >
               <team-chip
-                :name="item.name"
-                :color="$store.state.layout.isColoredTeamsEnabled ? item.color : 'primary'"
+                  :name="item.name"
+                  :color="$store.state.layout.isColoredTeamsEnabled ? item.color : defaultColor"
               />
               <template v-slot:input>
                 <v-text-field
-                  v-model="teamNameInput"
-                  :rules="teamNameRules"
-                  label="Teamname"
-                  single-line
-                  autofocus
+                    v-model="teamNameInput"
+                    :rules="teamNameRules"
+                    label="Teamname"
+                    single-line
+                    autofocus
                 ></v-text-field>
               </template>
             </v-edit-dialog>
@@ -153,7 +157,7 @@
           </template>
           <template v-slot:[`item.beerScore`]="{ item }">
             <span class="standings-score"
-              >{{ item.beersGood }}:{{ item.beersBad }}</span
+            >{{ item.beersGood }}:{{ item.beersBad }}</span
             >
             <span class="standings-score-hightlight">
               ({{ item.beersGood - item.beersBad }})
@@ -167,6 +171,7 @@
 
 <script>
 import TeamChip from "./TeamChip.vue";
+
 export default {
   components: {
     TeamChip,
@@ -174,6 +179,7 @@ export default {
   props: ["group"],
   data: () => {
     return {
+      defaultColor: "#BF1F1F",
       beerInput: "",
       teamNameInput: "",
       expandedTables: [0, 1],
@@ -300,8 +306,8 @@ export default {
   methods: {
     getGameResultStyling(teamPos, score) {
       if (
-        (score.beers1 === undefined && teamPos === 1) ||
-        (score.beers2 === undefined && teamPos === 2)
+          (score.beers1 === undefined && teamPos === 1) ||
+          (score.beers2 === undefined && teamPos === 2)
       ) {
         return "empty";
       }
