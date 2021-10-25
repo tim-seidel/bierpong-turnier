@@ -213,35 +213,30 @@ export default {
         },
         {
           text: "Team 1",
-          width: "35%",
           value: "team1.name",
           align: "start",
           sortable: false,
         },
         {
           text: "Biere",
-          width: "10%",
           value: "score.beers1",
           align: "center",
           sortable: false,
         },
         {
           text: "",
-          width: "2%",
           sortable: false,
           align: "center",
           value: "divider",
         },
         {
           text: "Biere",
-          width: "10%",
           value: "score.beers2",
           align: "center",
           sortable: false,
         },
         {
           text: "Team 2",
-          width: "35%",
           value: "team2.name",
           align: "end",
           sortable: false,
@@ -256,28 +251,25 @@ export default {
         },
         {
           text: "Team",
-          width: "52%",
+          width: "53%",
           value: "name",
           align: "start",
           sortable: false,
         },
         {
           text: "Sp.",
-          width: "10%",
           value: "games",
           align: "center",
           sortable: false,
         },
         {
           text: "Pkt.",
-          width: "10%",
           value: "points",
           align: "center",
           sortable: false,
         },
         {
           text: "Biere",
-          width: "20%",
           value: "beerScore",
           align: "center",
           sortable: false,
@@ -375,10 +367,6 @@ export default {
 </script>
 
 <style scoped>
-.loser-team {
-  opacity: 0.5;
-}
-
 .winner {
   font-weight: bold;
   font-size: 1.5rem;
@@ -421,8 +409,7 @@ export default {
   font-size: 1.3rem;
   border: 1px solid gray;
   border-radius: 4px;
-  margin: 2px;
-  padding: 0 4px;
+  margin-right: 4px;
   text-align: center;
 }
 
@@ -432,7 +419,7 @@ export default {
 }
 
 .standings-score {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   display: inline;
 }
 
@@ -445,14 +432,14 @@ export default {
 
 <style>
 .v-expansion-panel-content__wrap {
-  padding: 0 !important;
-}
-
-td {
-  font-size: 16px !important;
+  padding: 0 6px !important;
 }
 
 th {
   font-size: 14px !important;
+}
+
+.v-data-table td {
+  padding: 0 2px !important;
 }
 </style>
