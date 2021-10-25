@@ -153,13 +153,13 @@
             <span class="standings-score">{{ item.games }}</span>
           </template>
           <template v-slot:[`item.points`]="{ item }">
-            <span class="standings-score-hightlight">{{ item.points }}</span>
+            <span class="standings-score-highlight">{{ item.points }}</span>
           </template>
           <template v-slot:[`item.beerScore`]="{ item }">
             <span class="standings-score"
             >{{ item.beersGood }}:{{ item.beersBad }}</span
             >
-            <span class="standings-score-hightlight">
+            <span class="standings-score-highlight">
               ({{ item.beersGood - item.beersBad }})
             </span>
           </template>
@@ -436,7 +436,7 @@ export default {
   display: inline;
 }
 
-.standings-score-hightlight {
+.standings-score-highlight {
   font-size: 1.2rem;
   font-weight: 700;
   display: inline;
