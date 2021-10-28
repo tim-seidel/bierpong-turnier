@@ -15,7 +15,7 @@
             :headers="gameHeaders"
             :items="games"
             mobile-breakpoint="400"
-            :hide-default-footer="!$store.state.layout.isPaginationEnabled"
+            :hide-default-footer="!showPaginationFooter"
             :footer-props="footerProps"
             :items-per-page="itemsPerPage"
         >
@@ -294,6 +294,9 @@ export default {
         return this.games.length;
       }
     },
+    showPaginationFooter(){
+      return this.$store.state.layout.isPaginationEnabled && this.$store.state.layout.gamesPerPage < this.games.length
+    }
   },
   methods: {
     getGameResultStyling(teamPos, score) {
