@@ -27,7 +27,7 @@
       <v-col class="pt-0 " cols="12" sm="6">
         <v-select
             outlined
-            :items="[2, 3, 4, 5, 6, 10]"
+            :items="[2, 3, 4, 5, 6, 7, 10]"
             label="Spiele pro Tabellenseite"
             :disabled="!$store.state.layout.isPaginationEnabled"
             v-model="$store.state.layout.gamesPerPage"

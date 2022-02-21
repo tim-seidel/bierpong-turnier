@@ -5,6 +5,7 @@ export const colors = [
   '#F34213',
   '#6CD4FF',
   '#9B97B2',
+  '#9b0000'
 ]
 
 export default class Team {

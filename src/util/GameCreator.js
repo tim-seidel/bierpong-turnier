@@ -82,5 +82,29 @@ export function getTeamParings(numberOfTeams) {
                 { first: 5, second: 4 },
                 { first: 2, second: 3 }
             ]
+        case 7:
+            return [
+                { first: 3, second: 6 },
+                { first: 7, second: 4 },
+                { first: 2, second: 1 },
+                { first: 4, second: 5 },
+                { first: 1, second: 7 },
+                { first: 6, second: 2 },
+                { first: 3, second: 5 },
+                { first: 1, second: 4 },
+                { first: 7, second: 6 },
+                { first: 2, second: 3 },
+                { first: 5, second: 1 },
+                { first: 4, second: 6 },
+                { first: 7, second: 3 },
+                { first: 5, second: 2 },
+                { first: 1, second: 6 },
+                { first: 3, second: 4 },
+                { first: 2, second: 7 },
+                { first: 5, second: 6 },
+                { first: 1, second: 3 },
+                { first: 2, second: 4 },
+                { first: 5, second: 7 }
+            ]
     }
 }
