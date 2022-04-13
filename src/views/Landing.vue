@@ -109,7 +109,7 @@ export default Vue.extend({
       dialog: false,
       message: "",
       tournament: null,
-      currentPage: 2
+      currentPage: 0
     };
   },
 
