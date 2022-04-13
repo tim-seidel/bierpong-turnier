@@ -3,18 +3,19 @@
     <v-card align="center" elevation="0">
       <v-card-text style="max-width: 900px;" align="center">
         <v-img
-          class="mb-4"
-          :src="require('../assets/logo_small.png')"
-          contain
+            class="mb-4"
+            :src="require('../assets/logo_small.png')"
+            contain
         />
-        <p>Du kannst neue Tuniere auf Basis von Gruppen, Teams oder Spielern erstellen.<br> In der Turnierverwaltung kannst du erstellte Turniere starten/fortsetzen oder Speicherdateien laden. </p>
+        <p>Du kannst neue Tuniere auf Basis von Gruppen, Teams oder Spielern erstellen.<br> In der Turnierverwaltung
+          kannst du erstellte Turniere starten/fortsetzen oder Speicherdateien laden. </p>
 
         <v-row>
           <v-col cols="12" sm="6">
             <v-btn
-              color="primary"
-              block
-              @click="$router.push({ name: 'TournamentCreation' })"
+                color="primary"
+                block
+                @click="$router.push({ name: 'TournamentCreation' })"
             >
               <v-icon class="mr-2">mdi-plus</v-icon>
               Turnier erstellen
@@ -22,9 +23,9 @@
           </v-col>
           <v-col cols="12" sm="6">
             <v-btn
-              block
-              color="primary"
-              @click="$router.push({ name: 'ManagingLanding' })"
+                block
+                color="primary"
+                @click="$router.push({ name: 'ManagingLanding' })"
             >
               <v-icon class="mr-2">mdi-clipboard-edit</v-icon>
               Turnierverwaltung
@@ -35,16 +36,19 @@
       <v-dialog v-model="dialog" width="500">
         <v-card>
           <v-card-title class="primary white--text" primary-title
-            >Laufendes Turnier fortfahren?</v-card-title
+          >Laufendes Turnier fortfahren?
+          </v-card-title
           >
           <v-card-text class="black--text mt-4">{{ message }}</v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="red lighten-2" text @click="dismissTournament"
-              >Zurücksetzen</v-btn
+            >Zurücksetzen
+            </v-btn
             >
             <v-btn color="primary" text @click="loadTournament"
-              >Fortsetzen</v-btn
+            >Fortsetzen
+            </v-btn
             >
           </v-card-actions>
         </v-card>
@@ -58,7 +62,7 @@ import Vue from "vue";
 
 import TeamChip from "@/components/TeamChip";
 
-import { getTournament } from "../services/TournamentService";
+import {getTournament} from "../services/TournamentService";
 
 export default Vue.extend({
   components: {
@@ -68,7 +72,7 @@ export default Vue.extend({
     return {
       dialog: false,
       message: "",
-      tournament: null,
+      tournament: null
     };
   },
 
@@ -95,7 +99,7 @@ export default Vue.extend({
     if (this.$store.getters.tournament != null) {
       this.tournament = this.$store.getters.tournament;
       this.showDialog(
-        "Du hast akutell ein Turnier geladen, möchtest du damit fortfahren?"
+          "Du hast akutell ein Turnier geladen, möchtest du damit fortfahren?"
       );
     } else {
       try {
