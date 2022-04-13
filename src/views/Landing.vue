@@ -67,32 +67,6 @@
             <li>Keine Schmetterwürfe!</li>
           </ul>
         </v-col>
-
-        <p>Du kannst neue Tuniere auf Basis von Gruppen, Teams oder Spielern erstellen.<br> In der Turnierverwaltung
-          kannst du erstellte Turniere starten/fortsetzen oder Speicherdateien laden. </p>
-
-        <v-row style="max-width: 900px">
-          <v-col cols="12" sm="6">
-            <v-btn
-                color="primary"
-                block
-                @click="$router.push({ name: 'TournamentCreation' })"
-            >
-              <v-icon class="mr-2">mdi-plus</v-icon>
-              Turnier erstellen
-            </v-btn>
-          </v-col>
-          <v-col cols="12" sm="6">
-            <v-btn
-                block
-                color="primary"
-                @click="$router.push({ name: 'ManagingLanding' })"
-            >
-              <v-icon class="mr-2">mdi-clipboard-edit</v-icon>
-              Turnierverwaltung
-            </v-btn>
-          </v-col>
-        </v-row>
       </v-card-text>
       <v-dialog v-model="dialog" width="500">
         <v-card>
