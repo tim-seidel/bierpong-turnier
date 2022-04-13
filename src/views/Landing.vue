@@ -2,18 +2,19 @@
   <v-container fluid>
     <v-card align="center" elevation="0">
       <v-card-text align="center">
-        <v-img
-            style="max-width: 900px"
-            v-if="currentPage === 0"
-            class="mb-4"
-            :src="require('../assets/logo_small.png')"
-            contain
-        />
+        <v-col cols="12" md="9" xl="6" v-if="currentPage === 0">
+          <v-img
+              class="mb-4"
+              :src="require('../assets/logo_small.png')"
+              contain
+          />
+        </v-col>
+
         <v-col cols="12" lg="10" v-else-if="currentPage === 1">
           <h1>
             Regeln - Turnierablauf
           </h1>
-          <ul class="rules mt-4 mb-6 elevation-4 pa-6 pl-10">
+          <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
             <li>Ein Spiel dauert maximal 30 Minuten. Zu Beginn startet einer der 4 SpielerInnen eine
               Stoppuhr
             </li>
@@ -25,7 +26,7 @@
               erzielen oder zu gewinnen
             </li>
             <li>Jedes Team bekommt 10 eigene Becher die sie für all ihre Spiele nutzen, die dann mit 3x0,33
-              Radler/Bieflaschen gefüllt werden
+              Radler/Bierflaschen gefüllt werden
             </li>
             <li>Bei Spielende werden die verbliebenen Becher als schlechte Punkte notiert</li>
             <li>Die verbliebenen Becher vom Siegerteam werden in die vom Verliererteam umgefüllt und von denen
@@ -42,7 +43,7 @@
           <h1>
             Regeln - Spielablauf
           </h1>
-          <ul class="rules mt-4 mb-6 elevation-4 pa-6 pl-10">
+          <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
             <li>Der Ellenbogen darf beim Wurf nicht die Tischkante überschreiten, man darf sich in verlängerter Linie
               der Wurfkante auch links und rechts vom Tisch hin stellen und werfen
             </li>
