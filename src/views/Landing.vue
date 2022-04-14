@@ -8,64 +8,98 @@
               :src="require('../assets/logo_small.png')"
               contain
           />
+          <p>In der Toolbar kannst du über <span class="font-italic">Erstellen</span> neue Turniere auf Basis von
+            Gruppen, Teams oder Spielern erstellen.<br> In der Turnierverwaltung über <span class="font-italic">Verwalten/Laden</span>
+            lassen sich erstellte Turniere starten, fortsetzen oder Speicherdateien laden. </p>
         </v-col>
 
-        <v-col cols="12" lg="10" v-else-if="currentPage === 1">
+        <v-col cols="12" lg="9" v-else-if="currentPage === 1">
           <h1>
-            Regeln - Turnierablauf
+            Regeln I - Turnierablauf
           </h1>
           <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
-            <li>Ein Spiel dauert maximal 30 Minuten. Zu Beginn startet einer der 4 SpielerInnen eine
+            <li>Ein Spiel dauert maximal <strong>30 Minuten</strong>. Zu Beginn startet einer der 4 SpielerInnen eine
               Stoppuhr
             </li>
-            <li>Vor Beginn wird entschieden welches Team anfängt, ggf. eine Runde Schere/Stein/Papier, wobei der
+            <li>Vor Beginn wird entschieden <strong>welches Team anfängt</strong>, ggf. eine Runde Schere/Stein/Papier,
+              wobei der
               Gewinner entscheiden darf
             </li>
-            <li>Welches Team nicht anfängt hat den Nachwurf: Wenn das andere Team beendet (es darf auch versuchen den 2.
+            <li>Welches Team nicht anfängt hat den <strong>Nachwurf</strong>: Wenn das andere Team beendet (es darf auch
+              versuchen den 2.
               Ball noch in den letzten Becher zu werfen) dürfen noch 2 Bälle geworfen werden um einen Ausgleich zu
               erzielen oder zu gewinnen
             </li>
-            <li>Jedes Team bekommt 10 eigene Becher die sie für all ihre Spiele nutzen, die dann mit 3x0,33
-              Radler/Bierflaschen gefüllt werden
+            <li>Jedes Team bekommt <strong>10 eigene Becher</strong> die sie für all ihre Spiele nutzen, die dann mit
+              <strong>3x0,33
+                Radler/Bier</strong> gefüllt werden
             </li>
-            <li>Bei Spielende werden die verbliebenen Becher als schlechte Punkte notiert</li>
-            <li>Die verbliebenen Becher vom Siegerteam werden in die vom Verliererteam umgefüllt und von denen
-              getrunken
+            <li>Bei Spielende werden die <strong>verbliebenen Becher als schlechte Punkte notiert </strong></li>
+            <li>Die <strong>verbliebenen Becher</strong> vom Siegerteam werden <strong>in die Becher des Verliererteams
+              umgefüllt</strong>
+              und von denen
+              <strong>getrunken</strong>
             </li>
-            <li>Spiele können in der Gruppe der Vorrunde unter Abstimmung aller betroffenen Anwesenden in der
-              Reihenfolge getauscht werden
+            <li>
+              <strong>Spiele können in der</strong> Gruppe der Vorrunde unter Abstimmung aller betroffenen Anwesenden in
+              der
+              <strong>Reihenfolge getauscht</strong> werden
             </li>
             <li>Bei Unklarheiten oder vorher nicht festgelegten Situationen entscheiden Obo oder Tims</li>
           </ul>
         </v-col>
 
-        <v-col cols="12" lg="10" v-else-if="currentPage === 2">
+        <v-col cols="12" lg="9" v-else-if="currentPage === 2">
           <h1>
-            Regeln - Spielablauf
+            Regeln II - Spielablauf
           </h1>
           <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
-            <li>Der Ellenbogen darf beim Wurf nicht die Tischkante überschreiten, man darf sich in verlängerter Linie
+            <li>Der <strong>Ellenbogen</strong> darf beim Wurf <strong>nicht die Tischkante überschreiten</strong>. Man
+              darf sich in verlängerter Linie
               der Wurfkante auch links und rechts vom Tisch hin stellen und werfen
             </li>
-            <li>Setzt der Ball auf dem Tisch auf, darf er weggeschlagen werden</li>
-            <li>Trifft ein aufgesetzter Ball müssen 2 Becher weggestellt werden. Dies gilbt auch, wenn der Ball erst
+            <li><strong>Setzt der Ball auf</strong> dem Tisch auf, darf er weggeschlagen werden</li>
+            <li><strong>Trifft ein aufgesetzter Ball</strong> müssen 2 Becher weggestellt werden. Dies gilbt auch, wenn
+              der Ball erst
               einen Becher oder eine Person trifft, dann auf dem Tisch aufkommt und dann in einen Becher fällt
             </li>
-            <li>Treffen 2 Bälle in einen Becher müssen 3 Becher weggestellt werden</li>
-            <li>Bälle dürfen nicht aus den Bechern gepustet o.ä. werden</li>
-            <li>Wenn eigene Becher umgestoßen/o.ä. werden zählen die als getroffen und werden weg gestellt</li>
-            <li>Wird ein Becher von außen getroffen und vom Tisch gestoßen wird er aufgefüllt, von innen zählt als
-              getroffen
+            <li>Treffen <strong>2 Bälle in einen Becher</strong> müssen 3 Becher weggestellt werden</li>
+            <li>Bälle dürfen <strong>nicht</strong> aus den Bechern <strong>gepustet</strong> o.ä. werden</li>
+            <li>Wenn <strong>eigene Becher umgestoßen</strong>/o.ä. werden, zählen die als getroffen und werden
+              weggestellt
             </li>
-            <li>Rollt der Ball auf dem Tisch zurück, darf der ab der Mitte gegriffen und erneut geworfen werden. Das
-              Wurf-Team darf den zurückrollenden Ball über die Komplette Tischfläche hinweg weg schlagen/ greifen und so
-              einen erneuten Wurf verhindern. Es sind keine Trickshots nötig
+            <li>Wird ein Becher <strong>von außen getroffen</strong> und vom Tisch gestoßen wird er aufgefüllt, <strong>von
+              innen
+            </strong> zählt als getroffen
             </li>
-            <li>Nach einem Treffer darf man bei 6/4/3 Bechern 2x/Spiel diese als Pyramide/Raute
-              zusammenstellen lassen. Die Becher werden dann in der Mitte des Aufbaudreiecks platziert. Die Ansage geht
-              jeweils nur nach einem eigenen Treffer.
+            <li><strong>Rollt der Ball</strong> auf dem Tisch <strong>zurück</strong>, darf der ab der Mitte gegriffen
+              und erneut geworfen werden. Das
+              gegnerische Team darf den zurückrollenden Ball über die komplette Tischfläche hinweg weg schlagen/ greifen und so
+              einen erneuten Wurf verhindern. Es sind <strong>keine Trickshots nötig</strong>
             </li>
-            <li>Keine Schmetterwürfe!</li>
+            <li>Nach einem Treffer darf man bei <strong>6/4/3 Bechern 2x/Spiel</strong> diese als Pyramide/Raute
+              <strong>zusammenstellen</strong> lassen. Die Becher werden dann in der Mitte des Aufbaudreiecks platziert.
+              Die Ansage geht
+              jeweils nur nach einem eigenen Treffer
+            </li>
+            <li><strong>Keine Schmetterwürfe</strong>!</li>
+          </ul>
+        </v-col>
+        <v-col cols="12" lg="9" v-else-if="currentPage === 3">
+          <h1>
+            Regeln III - K.O. Phase
+          </h1>
+          <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
+            <li>Die K.O. Phase besteht aus <strong>24 Teams</strong></li>
+            <li>Die <strong>5.-Platzierten</strong> Teams kommen nicht weiter</li>
+            <li>Alle <strong>1.-Platzierten</strong> und die <strong>2 besten 2.-Platzierten</strong> qualifizieren sich
+              direkt für das Achtelfinale
+            </li>
+            <li>Die restlichen 16 Teams (übrige <strong>2.Platzierte, 3.- und 4.-Platzierte</strong>) spielen in einem
+              "halben" Sechzehntelfinale die <strong>verbleibenden 8 Plätze des Achtelfinale</strong> aus
+            </li>
+            <li>Danach geht es im normalen K.O.-Format weiter</li>
+            <li>Die 30-Minuten-Regel gilt weiterhin</li>
           </ul>
         </v-col>
       </v-card-text>
@@ -116,7 +150,7 @@ export default Vue.extend({
 
   methods: {
     cycleNext() {
-      this.currentPage = (this.currentPage + 1) % 3
+      this.currentPage = (this.currentPage + 1) % 4
     },
     showDialog(message) {
       this.message = message;
@@ -142,7 +176,7 @@ export default Vue.extend({
     if (this.$store.getters.tournament != null) {
       this.tournament = this.$store.getters.tournament;
       this.showDialog(
-          "Du hast akutell ein Turnier geladen, möchtest du damit fortfahren?"
+          "Du hast aktuell ein Turnier geladen, möchtest du damit fortfahren?"
       );
     } else {
       try {
@@ -171,6 +205,6 @@ li {
   padding-top: 8px;
   padding-bottom: 8px;
   line-height: 115%;
-  font-size: 18pt;
+  font-size: 19pt;
 }
 </style>
