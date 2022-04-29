@@ -35,11 +35,6 @@
                 Radler/Bier</strong> gefüllt werden
             </li>
             <li>Bei Spielende werden die <strong>verbliebenen Becher als schlechte Punkte notiert </strong></li>
-            <li>Die <strong>verbliebenen Becher</strong> vom Siegerteam werden <strong>in die Becher des Verliererteams
-              umgefüllt</strong>
-              und von denen
-              <strong>getrunken</strong>
-            </li>
             <li>
               <strong>Spiele können in der</strong> Gruppe der Vorrunde unter Abstimmung aller betroffenen Anwesenden in
               der
