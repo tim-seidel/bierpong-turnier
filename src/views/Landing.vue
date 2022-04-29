@@ -100,6 +100,7 @@
             </li>
             <li>Danach geht es im normalen K.O.-Format weiter</li>
             <li>Die 30-Minuten-Regel gilt weiterhin</li>
+            <li>Bei Unentschieden oder Ausgleich durch Nachwurf wird jeweils auf einen Becher nach dem Prinzip eines Elfmeterschießens geworfen</li>
           </ul>
         </v-col>
       </v-card-text>
