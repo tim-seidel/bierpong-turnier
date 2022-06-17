@@ -24,9 +24,12 @@
           </template>
 
           <template v-slot:[`item.team1.name`]="{ item }">
+            <!-- Placement Depends on what the other team needs -->
             <team-chip
                 :name="item.team1.name"
                 :color="$store.state.layout.isColoredTeamsEnabled ? item.team1.color: defaultColor"
+                :cup-layout-enabled="$store.state.layout.isCupLayoutEnabled"
+                :cup-layout="getCupLayout(item.team2, item)"
             />
           </template>
 
@@ -95,9 +98,12 @@
           </template>
 
           <template v-slot:[`item.team2.name`]="{ item }">
+            <!-- CupLayout Depends on what the other team needs -->
             <team-chip
                 :name="item.team2.name"
                 :color="$store.state.layout.isColoredTeamsEnabled ? item.team2.color: defaultColor"
+                :cup-layout-enabled="$store.state.layout.isCupLayoutEnabled"
+                :cup-layout="getCupLayout(item.team1, item)"
                 right
             />
           </template>
@@ -171,6 +177,7 @@
 
 <script>
 import TeamChip from "./TeamChip.vue";
+import CupLayouts from "../util/CupLayouts";
 
 export default {
   components: {
@@ -316,7 +323,26 @@ export default {
 
       return styling;
     },
+    getCupLayout(team, game) {
+      const gameNumber = this.getGameNumberOfTeam(team, game) - 1
+      return CupLayouts[Math.max(0, gameNumber % CupLayouts.length)]
+    },
+    getGameNumberOfTeam(team, game) {
+      let count = 0;
+      let before = true
+      this.games.forEach(g => {
+        if (g.team1.id === team.id || g.team2.id === team.id) {
+          if (before) {
+            count++
+          }
+        }
+        if (game.id === g.id) {
+          before = false
+        }
+      })
 
+      return count
+    },
     saveBeer1Input(game) {
       game.score.beers1 = this.beerInput ? +this.beerInput : undefined;
       this.beerInput = "";

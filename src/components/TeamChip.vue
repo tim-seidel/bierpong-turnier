@@ -1,23 +1,47 @@
 <template>
-  <h4 v-if="simple">{{ name }}</h4>
-  <v-chip v-else-if="!right" :color="color" outlined pill>
-    <v-avatar :color="color" left>
-      <h3 class="white--text">{{ initials }}</h3>
-      <!--<v-icon color="white">mdi-account-multiple</v-icon>-->
-    </v-avatar>
-    <h3 class="primary--text ml-1">
-      {{ name ? name : "?" }}
-    </h3>
-  </v-chip>
-  <v-chip v-else :color="color" outlined pill>
-    <h3 class="primary--text mr-1">
-      {{ name ? name : "?" }}
-    </h3>
-    <v-avatar :color="color" right>
-      <h3 class="white--text">{{ initials }}</h3>
-      <!--<v-icon color="white">mdi-account-multiple</v-icon>-->
-    </v-avatar>
-  </v-chip>
+  <div>
+    <h4 v-if="simple">{{ name }}</h4>
+    <v-chip v-else-if="!right" :color="color" outlined pill>
+      <v-avatar :color="color" left>
+        <h3 class="white--text">{{ initials }}</h3>
+        <!--<v-icon color="white">mdi-account-multiple</v-icon>-->
+      </v-avatar>
+      <v-img class="ml-1" v-if="cupLayoutEnabled" width="28" :src="cupLayout.file" @click="showCupLayout"/>
+      <h3 class="primary--text ml-1">
+        {{ name ? name : "?" }}
+      </h3>
+    </v-chip>
+    <v-chip v-else :color="color" outlined pill>
+      <h3 class="primary--text mr-1">
+        {{ name ? name : "?" }}
+      </h3>
+      <v-img v-if="cupLayoutEnabled" width="28" :src="cupLayout.file" @click="showCupLayout"/>
+      <v-avatar :color="color" right>
+        <h3 class="white--text">{{ initials }}</h3>
+        <!--<v-icon color="white">mdi-account-multiple</v-icon>-->
+      </v-avatar>
+    </v-chip>
+    <v-dialog v-model="dialogCupLayout" max-width="600">
+      <v-card>
+        <v-card-title class="text-h5 grey lighten-2">
+          Becher-Layout: {{ cupLayout.name }}
+        </v-card-title>
+        <v-card-text>
+          <v-img :src="cupLayout.file"></v-img>
+        </v-card-text>
+        <v-divider></v-divider>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+              color="primary"
+              text
+              @click="dialogCupLayout = false"
+          > Schließen
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
@@ -43,6 +67,19 @@ export default {
     greyedOut: {
       type: Boolean,
       default: false
+    },
+    cupLayoutEnabled: {
+      type: Boolean,
+      default: false
+    },
+    cupLayout: {
+      type: Object,
+      default: () => {return {file: "", name: "Unbekannt"}}
+    }
+  },
+  data: () => {
+    return {
+      dialogCupLayout: false
     }
   },
   computed: {
@@ -62,6 +99,10 @@ export default {
         );
       }
     },
-  },
+  }, methods: {
+    showCupLayout() {
+      this.dialogCupLayout = true
+    }
+  }
 };
 </script>

@@ -11,7 +11,8 @@ export default new Vuex.Store({
             groupsPerRow: 2,
             isPaginationEnabled: false,
             gamesPerPage: 6,
-            isColoredTeamsEnabled: true
+            isColoredTeamsEnabled: true,
+            isCupLayoutEnabled: false
         },
     },
     mutations: {},

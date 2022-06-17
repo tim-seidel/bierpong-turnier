@@ -41,10 +41,17 @@
       </v-col>
       <v-col class="pb-0" cols="12">
         <v-switch
-            class="mt-0 mb-6"
+            class="mt-0 mb-0"
             label="Teams mit Farben"
             v-model="$store.state.layout.isColoredTeamsEnabled"/>
       </v-col>
+      <v-col class="pb-0 pt-0" cols="12">
+        <v-switch
+            class="mt-0 mb-6"
+            label="Spezielle Aufstellregeln anzeigen"
+            v-model="$store.state.layout.isCupLayoutEnabled"/>
+      </v-col>
+
     </v-row>
 
     <v-row>
