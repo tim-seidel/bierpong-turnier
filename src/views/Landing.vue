@@ -12,8 +12,21 @@
             Gruppen, Teams oder Spielern erstellen.<br> In der Turnierverwaltung über <span class="font-italic">Verwalten/Laden</span>
             lassen sich erstellte Turniere starten, fortsetzen oder Speicherdateien laden. </p>
         </v-col>
-
         <v-col cols="12" lg="9" v-else-if="currentPage === 1">
+          <h1>
+            Regeln 0 - Sonderregeln des 10. Turniers
+          </h1>
+          <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
+            <li>Die <strong>Becher</strong> werden nach <strong>unterschiedlichen Mustern aufgestellt</strong></li>
+            <li>Die <strong>Aufbauweise</strong> ist in der <strong>Spielliste festgelegt</strong></li>
+            <li>Die genaue Aufbauweise ist durch Klick auf das jeweilige Icon einsehbar oder als Aushang :)</li>
+            <li>Ein <strong>Zusammenstellen der Becher</strong> ist nur bei 3 Bechern möglich. Diese werden als Pyramide in der Mitte des
+              Aufbaudreiecks platziert. Die Ansage gilt nur nach einem eigenen Treffer
+            </li>
+            <li>Nur das <strong>Finale</strong> wird nach normalen Aufstellregeln gespielt</li>
+          </ul>
+        </v-col>
+        <v-col cols="12" lg="9" v-else-if="currentPage === 2">
           <h1>
             Regeln I - Turnierablauf
           </h1>
@@ -21,17 +34,19 @@
             <li>Ein Spiel dauert maximal <strong>30 Minuten</strong>. Zu Beginn startet einer der 4 Spieler:innen eine
               Stoppuhr
             </li>
-            <li>Vor Beginn wird festgelegt <strong>welches Team anfängt</strong> (ggf. eine Runde Schere/Stein/Papier. Das
+            <li>Vor Beginn wird festgelegt <strong>welches Team anfängt</strong> (ggf. eine Runde Schere/Stein/Papier.
+              Das
               Gewinnerteam darf entscheiden)
             </li>
-            <li>Das Team, das nicht anfängt hat den <strong>Nachwurf</strong>: Wenn das Beginnerteam beendet (es darf ggf.
+            <li>Das Team, das nicht anfängt hat den <strong>Nachwurf</strong>: Wenn das Beginnerteam beendet (es darf
+              ggf.
               versuchen auch den 2.
               Ball in den letzten Becher zu werfen) dürfen noch 2 Bälle geworfen werden um einen Ausgleich zu
               erzielen oder zu gewinnen
             </li>
-            <li>Jedes Team bekommt <strong>10 eigene Becher</strong> die sie für all ihre Spiele nutzen, die dann mit
+            <li>Jedes Team füllt die Becher mit
               <strong>3x0,33
-                Radler/Bier</strong> gefüllt werden
+                Radler/Bier</strong>
             </li>
             <li>Bei Spielende werden die <strong>verbliebenen Becher als schlechte Punkte notiert </strong></li>
             <li>
@@ -39,11 +54,12 @@
               der
               <strong>Reihenfolge getauscht</strong> werden
             </li>
-            <li>Bei <strong>Unklarheiten</strong> oder vorher nicht festgelegten Situationen entscheiden Obo oder Tims</li>
+            <li>Bei <strong>Unklarheiten</strong> oder vorher nicht festgelegten Situationen entscheiden Obo oder Tims
+            </li>
           </ul>
         </v-col>
 
-        <v-col cols="12" lg="9" v-else-if="currentPage === 2">
+        <v-col cols="12" lg="9" v-else-if="currentPage === 3">
           <h1>
             Regeln II - Spielablauf
           </h1>
@@ -62,39 +78,39 @@
             <li>Wenn <strong>eigene Becher umgestoßen</strong>/o.ä. werden, zählen die als getroffen und werden
               weggestellt
             </li>
-            <li>Wird ein Becher <strong>von außen getroffen</strong>, der umfällt oder vom Tisch gestoßen wird, wird er wieder hingestellt und aufgefüllt, <strong>von
-              innen
-            </strong> zählt als getroffen
+            <li>Wird ein Becher <strong>von außen getroffen</strong>, der umfällt oder vom Tisch gestoßen wird, wird er
+              wieder hingestellt und aufgefüllt, <strong>von
+                innen
+              </strong> zählt als getroffen
             </li>
             <li><strong>Rollt der Ball</strong> auf dem Tisch <strong>zurück</strong>, darf der ab der Mitte gegriffen
               und erneut geworfen werden. Das
-              gegnerische Team darf den zurückrollenden Ball über die komplette Tischfläche hinweg wegschlagen/greifen und so
+              gegnerische Team darf den zurückrollenden Ball über die komplette Tischfläche hinweg wegschlagen/greifen
+              und so
               einen erneuten Wurf verhindern. Es sind <strong>keine Trickshots nötig</strong>
             </li>
-            <li>Nach einem Treffer darf man bei <strong>6/4/3 Bechern 2x/Spiel</strong> diese als Pyramide/Raute
-              <strong>zusammenstellen</strong> lassen. Die Becher werden dann in der Mitte des Aufbaudreiecks platziert.
-              Die Ansage geht
-              jeweils nur nach einem eigenen Treffer
+            <li>Nach einem Treffer darf man bei <strong>3 Bechern </strong> diese als Pyramide in der Mitte des
+              Aufbaudreiecks
+              <strong>zusammenstellen</strong> lassen. Die Ansage geht jeweils nur nach einem eigenen Treffer
             </li>
             <li><strong>Keine Schmetterwürfe</strong>!</li>
           </ul>
         </v-col>
-        <v-col cols="12" lg="9" v-else-if="currentPage === 3">
+        <v-col cols="12" lg="9" v-else-if="currentPage === 4">
           <h1>
             Regeln III - K.O. Phase
           </h1>
           <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
-            <li>Die K.O. Phase besteht aus <strong>24 Teams</strong></li>
-            <li>Die <strong>5.-Platzierten</strong> Teams kommen nicht weiter</li>
-            <li>Alle <strong>1.-Platzierten</strong> und die <strong>2 besten 2.-Platzierten</strong> qualifizieren sich
-              direkt für das Achtelfinale
+            <li>Die K.O. Phase besteht aus <strong>16 Teams</strong></li>
+            <li>Es wird zunächst ein Achtelfinale gespielt, bei denen die starken den schwachen Teams zugeordnet
+              werden
             </li>
-            <li>Die restlichen 16 Teams (übrige <strong>2.Platzierte, 3.- und 4.-Platzierte</strong>) spielen in einem
-              "halben" Sechzehntelfinale die <strong>verbleibenden 8 Plätze des Achtelfinale</strong> aus
+            <li>Danach geht es im normalen <strong>K.O.-Format</strong> weiter</li>
+            <li>Die <strong>30-Minuten-Regel</strong> gilt weiterhin</li>
+            <li>Bei <strong>Unentschieden</strong> oder Ausgleich durch Nachwurf wird jeweils auf einen Becher nach dem Prinzip eines
+              Elfmeterschießens geworfen
             </li>
-            <li>Danach geht es im normalen K.O.-Format weiter</li>
-            <li>Die 30-Minuten-Regel gilt weiterhin</li>
-            <li>Bei Unentschieden oder Ausgleich durch Nachwurf wird jeweils auf einen Becher nach dem Prinzip eines Elfmeterschießens geworfen</li>
+            <li>Das <strong>Finale</strong> wird mit normalen Aufbauregeln gespielt</li>
           </ul>
         </v-col>
       </v-card-text>
@@ -145,7 +161,7 @@ export default Vue.extend({
 
   methods: {
     cycleNext() {
-      this.currentPage = (this.currentPage + 1) % 4
+      this.currentPage = (this.currentPage + 1) % 5
     },
     showDialog(message) {
       this.message = message;
