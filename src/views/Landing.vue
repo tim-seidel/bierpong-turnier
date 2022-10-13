@@ -21,25 +21,25 @@
             <li>Ein Spiel dauert maximal <strong>30 Minuten</strong>. Zu Beginn startet einer der 4 Spieler:innen eine
               Stoppuhr
             </li>
-            <li>Vor Beginn wird festgelegt <strong>welches Team anfängt</strong> (ggf. eine Runde Schere/Stein/Papier. Das
-              Gewinnerteam darf entscheiden)
+            <li>Vor Beginn wird festgelegt <strong>welches Team anfängt</strong> (ggf. eine Runde Schere/Stein/Papier.
+              Das Gewinnerteam darf entscheiden)
             </li>
-            <li>Das Team, das nicht anfängt hat den <strong>Nachwurf</strong>: Wenn das Beginnerteam beendet (es darf ggf.
-              versuchen auch den 2.
-              Ball in den letzten Becher zu werfen) dürfen noch 2 Bälle geworfen werden um einen Ausgleich zu
-              erzielen oder zu gewinnen
+            <li>Das Team, das nicht anfängt hat den <strong>Nachwurf</strong>: Wenn das Beginnerteam beendet (es darf
+              ggf. versuchen auch den 2. Ball in den letzten Becher zu werfen) dürfen noch 2 Bälle geworfen werden um
+              einen Ausgleich zu erzielen oder zu gewinnen
             </li>
-            <li>Jedes Team bekommt <strong>10 eigene Becher</strong> die sie für all ihre Spiele nutzen, die dann mit
+            <li>Jedes Team füllt die Becher mit
               <strong>3x0,33
-                Radler/Bier</strong> gefüllt werden
+                Radler/Bier</strong>
             </li>
             <li>Bei Spielende werden die <strong>verbliebenen Becher als schlechte Punkte notiert </strong></li>
             <li>
-              <strong>Spiele können in der</strong> Gruppe der Vorrunde unter Abstimmung aller betroffenen Anwesenden in
+              In einer Gruppe können <strong>Spiele</strong> unter Abstimmung aller betroffenen Anwesenden in
               der
               <strong>Reihenfolge getauscht</strong> werden
             </li>
-            <li>Bei <strong>Unklarheiten</strong> oder vorher nicht festgelegten Situationen entscheiden Obo oder Tims</li>
+            <li>Bei <strong>Unklarheiten</strong> oder vorher nicht festgelegten Situationen entscheiden Obo oder Tims
+            </li>
           </ul>
         </v-col>
 
@@ -59,22 +59,23 @@
             </li>
             <li>Treffen <strong>2 Bälle in einen Becher</strong> müssen 3 Becher weggestellt werden</li>
             <li>Bälle dürfen <strong>nicht</strong> aus den Bechern <strong>gepustet</strong> o.ä. werden</li>
-            <li>Wenn <strong>eigene Becher umgestoßen</strong>/o.ä. werden, zählen die als getroffen und werden
+            <li>Wenn <strong>eigene Becher umgestoßen</strong> werden, zählen diese als getroffen und werden
               weggestellt
             </li>
-            <li>Wird ein Becher <strong>von außen getroffen</strong>, der umfällt oder vom Tisch gestoßen wird, wird er wieder hingestellt und aufgefüllt, <strong>von
-              innen
-            </strong> zählt als getroffen
+            <li>Wird ein Becher <strong>von außen getroffen</strong>, sodass um- oder vom Tisch fällt, wird er
+              wieder hingestellt und aufgefüllt. <strong>Von
+                innen
+              </strong> zählt als getroffen
             </li>
             <li><strong>Rollt der Ball</strong> auf dem Tisch <strong>zurück</strong>, darf der ab der Mitte gegriffen
-              und erneut geworfen werden. Das
-              gegnerische Team darf den zurückrollenden Ball über die komplette Tischfläche hinweg wegschlagen/greifen und so
-              einen erneuten Wurf verhindern. Es sind <strong>keine Trickshots nötig</strong>
+              und erneut geworfen werden. Das gegnerische Team darf den zurückrollenden Ball über die komplette
+              Tischfläche hinweg wegschlagen/greifen und so einen erneuten Wurf verhindern. Es sind <strong>keine
+                Trickshots nötig</strong>
             </li>
             <li>Nach einem Treffer darf man bei <strong>6/4/3 Bechern 2x/Spiel</strong> diese als Pyramide/Raute
               <strong>zusammenstellen</strong> lassen. Die Becher werden dann in der Mitte des Aufbaudreiecks platziert.
               Die Ansage geht
-              jeweils nur nach einem eigenen Treffer
+              jeweils nur <strong>nach einem eigenen Treffer</strong>
             </li>
             <li><strong>Keine Schmetterwürfe</strong>!</li>
           </ul>
@@ -94,7 +95,9 @@
             </li>
             <li>Danach geht es im normalen K.O.-Format weiter</li>
             <li>Die 30-Minuten-Regel gilt weiterhin</li>
-            <li>Bei Unentschieden oder Ausgleich durch Nachwurf wird jeweils auf einen Becher nach dem Prinzip eines Elfmeterschießens geworfen</li>
+            <li>Bei Unentschieden oder Ausgleich durch Nachwurf wird jeweils auf einen Becher nach dem Prinzip eines
+              Elfmeterschießens geworfen
+            </li>
           </ul>
         </v-col>
       </v-card-text>
@@ -139,13 +142,13 @@ export default Vue.extend({
       dialog: false,
       message: "",
       tournament: null,
-      currentPage: 0
+      currentPage: 3
     };
   },
 
   methods: {
     cycleNext() {
-      this.currentPage = (this.currentPage + 1) % 4
+      //this.currentPage = (this.currentPage + 1) % 4
     },
     showDialog(message) {
       this.message = message;
