@@ -217,7 +217,7 @@ export default {
           sortable: false,
         },
         {
-          text: "Biere",
+          text: "Restbiere",
           value: "score.beers1",
           align: "center",
           sortable: false,
@@ -229,7 +229,7 @@ export default {
           value: "divider",
         },
         {
-          text: "Biere",
+          text: "Restbiere",
           value: "score.beers2",
           align: "center",
           sortable: false,
@@ -256,13 +256,13 @@ export default {
           sortable: false,
         },
         {
-          text: "Sp.",
+          text: "Spiele",
           value: "games",
           align: "center",
           sortable: false,
         },
         {
-          text: "Pkt.",
+          text: "Punkte",
           value: "points",
           align: "center",
           sortable: false,
