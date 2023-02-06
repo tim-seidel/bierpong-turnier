@@ -104,6 +104,13 @@
     >
       <v-card-title> Konfiguriere die Erstellung der Gruppen: </v-card-title>
       <v-card-text>
+        <v-row>
+          <v-col cols="12">
+            <p>
+              Hier kannst du auswählen nach welchem Muster die Teams erstellt und den Gruppen ggf. zufällig zugeordnet werden.
+            </p>
+          </v-col>
+        </v-row>
         <v-tabs v-model="tab" grow>
           <v-tab> Teams </v-tab>
           <v-tab> Spieler*innen </v-tab>
