@@ -19,6 +19,7 @@ export function createGroups(teams, groupCount) {
     }
 
     groups.forEach(g => {
+        g.teams.sort((a, b) => a.id.localeCompare(b.id))
         g.teams.forEach((t, index) => {
             t.color = colors[index % colors.length]
         })

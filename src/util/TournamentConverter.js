@@ -3,7 +3,7 @@ import moment from "moment"
 import Game from "../model/Game"
 import Group from "../model/Group"
 import Score from "../model/Score"
-import Team from "../model/Team"
+import Team, {colors} from "../model/Team"
 import Tournament from "../model/Tournament"
 
 export function convertJsonToTournament(jTournament) {
@@ -36,9 +36,11 @@ export function convertJsonToTournament(jTournament) {
 
         jGroup.teams.forEach(jTeam => {
             const team = new Team(jTeam.id, jTeam.name)
-            team.color = jTeam.color
             teams.push(team)
         })
+
+        teams.sort((a, b) => a.id.localeCompare(b.id))
+        teams.forEach((t, i) => t.color = colors[i])
 
         jGroup.games.forEach(jGame => {
             const t1 = teams.find(t => t.id === jGame.team1Id)
@@ -80,8 +82,7 @@ export function convertTournamentToJson(tournament) {
         group.teams.forEach(team => {
             jTeams.push({
                 id: team.id,
-                name: team.name,
-                color: team.color
+                name: team.name
             })
         })
 
