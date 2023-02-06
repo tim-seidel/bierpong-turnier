@@ -12,14 +12,14 @@ export function createTeamsFromPlayers(players) {
 
     for (let t = 0; t < t_count; t++) {
         teams.push(new Team(
-            uuid(),
+            uuid().toString(),
             randomized[2 * t] + " + " + randomized[2 * t + 1]
         ))
     }
 
     if (randomized.length % 2) {
         teams.push(new Team(
-            uuid(),
+            uuid().toString(),
             randomized[t_count - 1]
         ))
     }
@@ -30,7 +30,7 @@ export function createTeamsFromPlayers(players) {
 export function createTeamsFromCount(teamCount) {
     const teams = []
     for (let t = 0; t < teamCount; t++) {
-        teams.push(new Team(uuid(), "Team " + (t + 1)))
+        teams.push(new Team(uuid().toString(), "Team " + (t + 1)))
     }
 
     return teams
@@ -43,7 +43,7 @@ export function createTeamsFromNames(names) {
 
     const teams = []
     randomized.forEach(name => {
-        teams.push(new Team(uuid(), name))
+        teams.push(new Team(uuid().toString(), name))
     })
 
     return teams

@@ -229,7 +229,7 @@ export default {
     saveTeam() {
       if (!this.group) return;
 
-      const team = new Team(uuid(), this.name);
+      const team = new Team(uuid().toString(), this.name);
       this.group.teams.push(team);
 
       const games = createGames(this.group);

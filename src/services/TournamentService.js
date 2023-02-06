@@ -33,7 +33,7 @@ export function createTournament(config) {
             throw new Error("Unknown tournament config type.")
     }
 
-    const tournament = new Tournament(uuid(), config.name, config.startDate)
+    const tournament = new Tournament(uuid().toString(), config.name, config.startDate)
     tournament.groups = grps
     tournament.configuration = {
         groupCount: config.groupCount,

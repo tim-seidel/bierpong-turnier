@@ -19,7 +19,7 @@ export function createGames(group) {
     let counter = 0
     pairings.forEach(pairing => {
         games.push(new Game(
-            uuid(),
+            uuid().toString(),
             group.teams[pairing.first - 1],
             group.teams[pairing.second - 1],
             new Score(),

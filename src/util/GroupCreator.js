@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import {v4 as uuid} from "uuid";
 import Group from "../model/Group";
 import {colors} from "../model/Team";
 
@@ -11,7 +11,7 @@ export function createGroups(teams, groupCount) {
     const groups = []
 
     for (let g = 0; g < groupCount; g++) {
-        groups.push(new Group(uuid(), "Tisch " + (g + 1),))
+        groups.push(new Group(uuid().toString(), "Tisch " + (g + 1)))
     }
 
     for (let t = 0; t < teamCount; t++) {
