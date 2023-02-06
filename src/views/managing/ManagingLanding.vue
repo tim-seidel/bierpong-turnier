@@ -70,6 +70,12 @@
         ></tournament-list>
       </v-col>
     </v-row>
+    <v-snackbar
+        v-model="notification.isVisible"
+        :timeout="2000"
+        centered
+        multi-line="multi-line"
+    >{{notification.message}}</v-snackbar>
   </v-container>
 </template>
 
@@ -96,6 +102,10 @@ export default Vue.extend({
     dialogEnd: {
       isVisible: false,
       deleteKey: "",
+    },
+    notification: {
+      isVisible: false,
+      message: ""
     }
   }),
   components: {
@@ -143,8 +153,10 @@ export default Vue.extend({
         this.loadTournaments()
 
         this.fileContent = undefined
+
+        this.showNotification("Turnier wurde geladen.")
       } catch (e) {
-        alert("Turnier konnte nicht geladen werden.")
+        this.showNotification("Turnier konnte nicht geladen werden.")
         console.log(e)
       }
     },
@@ -171,6 +183,10 @@ export default Vue.extend({
           console.log(e)
         }
       }
+    },
+    showNotification(message) {
+      this.notification.message = message
+      this.notification.isVisible = true
     },
     async onUploadConfirmed() {
       this.createOrUpdateTournamentFromFile()
