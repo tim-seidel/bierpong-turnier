@@ -2,21 +2,21 @@
   <div>
     <h4 v-if="simple">{{ name }}</h4>
     <v-chip v-else-if="!right" :color="color" outlined pill>
-      <v-avatar :color="color" left>
+      <v-avatar :color="color" rounded left>
         <h3 class="white--text">{{ initials }}</h3>
         <!--<v-icon color="white">mdi-account-multiple</v-icon>-->
       </v-avatar>
       <v-img class="ml-1" v-if="cupLayoutEnabled" width="28" :src="cupLayout.file" @click="showCupLayout"/>
-      <h3 class="primary--text ml-1">
-        {{ name ? name : "?" }}
+      <h3 :style="{ 'color': color}" >
+        {{name ? name : "?" }}
       </h3>
     </v-chip>
     <v-chip v-else :color="color" outlined pill>
-      <h3 class="primary--text mr-1">
+      <h3 :style="{ 'color': color}" >
         {{ name ? name : "?" }}
       </h3>
       <v-img v-if="cupLayoutEnabled" width="28" :src="cupLayout.file" @click="showCupLayout"/>
-      <v-avatar :color="color" right>
+      <v-avatar :color="color" rounded right>
         <h3 class="white--text">{{ initials }}</h3>
         <!--<v-icon color="white">mdi-account-multiple</v-icon>-->
       </v-avatar>
