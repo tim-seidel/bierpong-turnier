@@ -142,13 +142,13 @@ export default Vue.extend({
       dialog: false,
       message: "",
       tournament: null,
-      currentPage: 3
+      currentPage: 0
     };
   },
 
   methods: {
     cycleNext() {
-      //this.currentPage = (this.currentPage + 1) % 4
+      this.currentPage = (this.currentPage + 1) % 4
     },
     showDialog(message) {
       this.message = message;
