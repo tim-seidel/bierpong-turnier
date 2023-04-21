@@ -2,7 +2,7 @@
   <v-container class="pa-0 mt-4">
     <v-row>
       <v-col cols="12">
-        <p>Hier kannst Du Anmeldungen importieren. Coming soon (tm). Die Teams können dann angepasst und erweitert werden (verändert nicht die Anmeldungen selber)</p>
+        <p>Hier kannst Du Anmeldungen importieren. Coming soon (tm). Die Teams können dann frei angepasst und erweitert werden.</p>
       </v-col>
     </v-row>
     <v-form
