@@ -18,14 +18,13 @@
             Regeln I - Turnierablauf
           </h1>
           <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
-            <li>Ein Spiel dauert maximal <strong>30 Minuten</strong>. Zu Beginn startet einer der 4 Spieler:innen eine
+            <li>Ein Spiel dauert maximal <strong>30 Minuten</strong>. Zu Beginn startet einer der 4 Mitspielenden eine
               Stoppuhr
             </li>
-            <li>Vor Beginn wird festgelegt <strong>welches Team anfängt</strong> (ggf. eine Runde Schere/Stein/Papier.
-              Das Gewinnerteam darf entscheiden)
+            <li>Vor Beginn wird festgelegt <strong>welches Team anfängt</strong> (ggf. eine Runde Schere/Stein/Papier, das Gewinnerteam darf entscheiden)
             </li>
-            <li>Das Team, das nicht anfängt hat den <strong>Nachwurf</strong>: Wenn das Beginnerteam beendet (es darf
-              ggf. versuchen auch den 2. Ball in den letzten Becher zu werfen) dürfen noch 2 Bälle geworfen werden um
+            <li>Das andere Team hat den <strong>Nachwurf</strong>: Wenn das Beginnerteam beendet (es darf
+              versuchen auch den 2. Ball in den letzten Becher zu werfen) dürfen vom Nachwurfteam 2 Bälle geworfen werden um
               einen Ausgleich zu erzielen oder zu gewinnen
             </li>
             <li>Jedes Team füllt die Becher mit
@@ -48,12 +47,13 @@
             Regeln II - Spielablauf
           </h1>
           <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
-            <li>Der <strong>Ellenbogen</strong> darf beim Wurf <strong>nicht die Tischkante überschreiten</strong>. Man
-              darf sich in verlängerter Linie
-              der Wurfkante auch links und rechts vom Tisch hinstellen und werfen
+              <li>Der <strong>Ellenbogen</strong> darf <strong>die Tischkante</strong> beim Wurf<strong> nicht überschreiten</strong>. Würfe in verlängerter Line der Wurfkante links und rechts vom Tisch sind erlaubt
             </li>
-            <li><strong>Setzt der Ball auf</strong> dem Tisch auf, darf er weggeschlagen werden</li>
-            <li><strong>Trifft ein aufgesetzter Ball</strong> müssen 2 Becher weggestellt werden. Dies gilt auch, wenn
+              <li><strong>Setzt der Ball auf den Tisch</strong> auf, darf er <strong>weggeschlagen</strong> werden. Ein
+                  Ball der auf eine <strong>Becherkante</strong> trifft und hochspringt <strong>darf nicht
+                  weggeschlagen/</strong>gefangen werden
+              </li>
+              <li><strong>Trifft ein aufgesetzter Ball</strong> müssen 2 Becher weggestellt werden. Dies gilt auch, wenn
               der Ball erst
               einen Becher oder eine Person trifft, dann auf dem Tisch aufkommt und dann in einen Becher fällt
             </li>
@@ -62,7 +62,7 @@
             <li>Wenn <strong>eigene Becher umgestoßen</strong> werden, zählen diese als getroffen und werden
               weggestellt
             </li>
-            <li>Wird ein Becher <strong>von außen getroffen</strong>, sodass um- oder vom Tisch fällt, wird er
+            <li>Wird ein Becher <strong>von außen getroffen</strong>, sodass er um- oder vom Tisch fällt, wird er
               wieder hingestellt und aufgefüllt. <strong>Von
                 innen
               </strong> zählt als getroffen
