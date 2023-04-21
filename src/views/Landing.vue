@@ -85,14 +85,10 @@
             Regeln III - K.O. Phase
           </h1>
           <ul class="rules mt-6 mb-6 elevation-4 pa-6 pl-10">
-            <li>Die K.O. Phase besteht aus <strong>24 Teams</strong></li>
-            <li>Die <strong>5.-Platzierten</strong> Teams kommen nicht weiter</li>
-            <li>Alle <strong>1.-Platzierten</strong> und die <strong>2 besten 2.-Platzierten</strong> qualifizieren sich
-              direkt für das Achtelfinale
-            </li>
-            <li>Die restlichen 16 Teams (übrige <strong>2.Platzierte, 3.- und 4.-Platzierte</strong>) spielen in einem
-              "halben" Sechzehntelfinale die <strong>verbleibenden 8 Plätze des Achtelfinale</strong> aus
-            </li>
+            <li>[Anzahl/Art der K.O. Teams]</li>
+            <li>[Anzahl/Art der ausscheidenen Teams]</li>
+            <li>[Spezielle Direktqulifikationsregeln]
+            <li>[Spezielle Ausspielregeln]</li>
             <li>Danach geht es im normalen K.O.-Format weiter</li>
             <li>Die 30-Minuten-Regel gilt weiterhin</li>
             <li>Bei Unentschieden oder Ausgleich durch Nachwurf wird jeweils auf einen Becher nach dem Prinzip eines
